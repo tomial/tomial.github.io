@@ -1,0 +1,37 @@
+baseURL: https://tomial.github.io
+languageCode: zh-cn
+theme: archie
+title: Tomial's Blog
+copyright: © Tomial
+paginate: 6
+enableEmoji: true
+hasCJKLanguage: true
+
+titleEmoji: '😎'
+
+menu:
+  main:
+    - name: 主页
+      url: /
+      weight: 1
+    - name: 全部文章
+      url: /posts
+      weight: 2
+    - name: 标签
+      url: /tags
+      weight: 3
+    - name: 关于
+      url: /about
+      weight: 4
+
+params:
+  social:
+    - name: Github
+      icon: github
+      url: https://github.com/tomial
+
+markup:
+  highlight:
+    style: paraiso-dark
+    tabWidth: 2
+    lineNos: true
