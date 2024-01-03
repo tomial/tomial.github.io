@@ -1,6 +1,6 @@
 body {
-  color: white;
-  background-color: #202124;
+  color: #cad3f5;
+  background-color: #24273a;
 }
 
 ::-moz-selection {
@@ -10,8 +10,8 @@ body {
 }
 
 ::selection {
-  background: red;
-  color: #fff;
+  background: #939ab7;
+  color: #24273a;
   text-shadow: none;
 }
 
@@ -19,8 +19,8 @@ hr {
   border-top: 3px dotted blue;
 }
 code {
-  background-color: lightblue;
-  color: black;
+  background-color: #6e738d;
+  color: #cad3f5;
   text-decoration: bold;
   padding: 0.1em 0.2em;
 }
@@ -31,7 +31,7 @@ pre {
   padding: 1em;
 }
 blockquote {
-  border-color: blue;
+  border-color: #8aadf4;
 }
 
 h1,
@@ -68,7 +68,7 @@ h6::before {
 }
 
 a {
-  border-bottom: 3px solid var(--darkMaincolor);
+  border-bottom: 2px solid var(--darkMaincolor);
   color: inherit;
 }
 a:hover {
@@ -84,7 +84,7 @@ a:hover {
 }
 
 .tags a {
-  border-bottom: 3px solid var(--darkMaincolor);
+  border-bottom: 2px solid var(--darkMaincolor);
 }
 .tags a:hover {
   background-color: var(--darkMaincolor);
@@ -133,7 +133,7 @@ a:hover {
 .highlight pre code[class*='language-json']::before{
   content: 'json';
   background: dodgerblue;
-   color: #000000 
+   color: #000000
 }
 .highlight pre code[class*='language-python']::before,
 .highlight pre code[class*='language-py']::before {

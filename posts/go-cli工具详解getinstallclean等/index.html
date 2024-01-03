@@ -1,60 +1,61 @@
-<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Go Cli工具详解(get,install,clean等) - Tomial's Blog</title><meta name=viewport content="width=device-width,initial-scale=1"><meta property="og:image" content><meta property="og:title" content="Go Cli工具详解(get,install,clean等)"><meta property="og:description" content="本文总结了 Go 1.16 后 Go 命令行工具使用需要注意的地方"><meta property="og:type" content="article"><meta property="og:url" content="https://tomial.github.io/posts/go-cli%E5%B7%A5%E5%85%B7%E8%AF%A6%E8%A7%A3getinstallclean%E7%AD%89/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-03-19T18:55:05+08:00"><meta property="article:modified_time" content="2021-03-19T18:55:05+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Go Cli工具详解(get,install,clean等)"><meta name=twitter:description content="本文总结了 Go 1.16 后 Go 命令行工具使用需要注意的地方"><script src=https://tomial.github.io/js/feather.min.js></script><link href=https://tomial.github.io/css/fonts.css rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://tomial.github.io/css/main.css></head><body><div class=content><header><div class=main><a href=https://tomial.github.io/>Tomial's Blog</a></div><nav><a href=/>主页</a>
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Go Cli工具详解(get,install,clean等) - Tomial's Blog</title><meta name=viewport content="width=device-width,initial-scale=1">
+<meta property="og:image" content><meta property="og:title" content="Go Cli工具详解(get,install,clean等)"><meta property="og:description" content="本文总结了 Go 1.16 后 Go 命令行工具使用需要注意的地方"><meta property="og:type" content="article"><meta property="og:url" content="https://tomial.github.io/posts/go-cli%E5%B7%A5%E5%85%B7%E8%AF%A6%E8%A7%A3getinstallclean%E7%AD%89/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-03-19T18:55:05+08:00"><meta property="article:modified_time" content="2021-03-19T18:55:05+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Go Cli工具详解(get,install,clean等)"><meta name=twitter:description content="本文总结了 Go 1.16 后 Go 命令行工具使用需要注意的地方"><script src=https://tomial.github.io/js/feather.min.js></script><link href=https://tomial.github.io/css/fonts.css rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://tomial.github.io/css/main.css><link rel=stylesheet type=text/css href=https://tomial.github.io/css/dark.css></head><body><div class=content><header><div class=main><a href=https://tomial.github.io/>Tomial's Blog</a></div><nav><a href=/>主页</a>
 <a href=/posts>全部文章</a>
 <a href=/tags>标签</a>
-<a href=/about>关于</a></nav></header><main><article><div class=title><h1 class=title>Go Cli工具详解(get,install,clean等)</h1><div class=meta style=margin-bottom:3em>最后编辑于 2021-03-19</div></div><section class=body><p>本文总结了 Go 1.16 后 Go 命令行工具使用需要注意的地方</p><p>文章一开头需要明确一下<code>module</code>的定义，一个<code>module</code>就是很多<code>package</code>的集合，一个包含 go.mod 的文件夹就是一个<code>module</code>，其包含了该文件夹下面的所有 package，当然还存在 <code>module</code> 嵌套的情况，比较少见不作讨论。</p><h1 id=get>get</h1><h2 id=使用示例>使用示例：</h2><div class=highlight><div style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=color:#776e71># Upgrade a specific module.</span>
-$ go get -d golang.org/x/net
-
-<span style=color:#776e71># Upgrade modules that provide packages imported by packages in the main module.</span>
-$ go get -d -u ./...
-
-<span style=color:#776e71># Upgrade or downgrade to a specific version of a module.</span>
-$ go get -d golang.org/x/text@v0.3.2
-
-<span style=color:#776e71># Update to the commit on the module&#39;s master branch.</span>
-$ go get -d golang.org/x/text@master
-
-<span style=color:#776e71># Remove a dependency on a module and downgrade modules that require it</span>
-<span style=color:#776e71># to versions that don&#39;t require it.</span>
-$ go get -d golang.org/x/text@none
-</code></pre></td></tr></table></div></div><p>官方文档给 get 的定义是：</p><blockquote><p>The go get command updates module dependencies in the go.mod file for the main module, then builds and installs packages listed on the command line.
-Go 命令更新 main module 在 go.mod 文件中的依赖项，然后编译安装二进制</p></blockquote><p>可以看到，go 1.16 中 get 还是有安装二进制的功能的，但是官方更推荐 install 来安装二进制，之后版本 get 安装二进制的功能会被去掉，所以给项目添加依赖只需要用<code>go get -d &lt;module-path></code>，这里的 d 告诉 get 下载完源码后停止：</p><blockquote><p>The -d flag instructs get not to build or install packages. get will only update go.mod and download source code needed to build packages.</p></blockquote><h1 id=install>Install</h1><p>Go 1.16 的更新日志中提到：</p><blockquote><p>go install, with or without a version suffix (as described above), is now the recommended way to build and install packages in module mode. go get should be used with the -d flag to adjust the current module&rsquo;s dependencies without building packages, and use of go get to build and install packages is deprecated. In a future release, the -d flag will always be enabled.</p></blockquote><p>推荐<code>go install</code>用于构建及安装 packages,<code>go get</code> 应该搭配<code>-d</code>一起使用，不推荐使用<code>go get</code>来构建安装 packages。</p><blockquote><p>The go install command builds and installs the packages named by the paths on the command line. Executables (main packages) are installed to the directory named by the GOBIN environment variable</p></blockquote><p><code>go install</code>将 packages 构建并安装到<code>$GOBIN</code>里。</p><h2 id=使用示例-1>使用示例：</h2><div class=highlight><div style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=color:#776e71># Install the latest version of a program,</span>
-<span style=color:#776e71># ignoring go.mod in the current directory (if any).</span>
-$ go install golang.org/x/tools/gopls@latest
-
-<span style=color:#776e71># Install a specific version of a program.</span>
-$ go install golang.org/x/tools/gopls@v0.6.4
-
-<span style=color:#776e71># Install a program at the version selected by the module in the current directory.</span>
-$ go install golang.org/x/tools/gopls
-
-<span style=color:#776e71># Install all programs in a directory.</span>
-$ go install ./cmd/...
-</code></pre></td></tr></table></div></div><h1 id=参考资料>参考资料：</h1><ul><li><a href=https://golang.org/doc/go1.16#go-command>Go 1.16 Release Notes</a></li><li><a href=https://golang.org/ref/mod#go-get>Go Modules Reference</a></li></ul></section><div class=post-tags><nav class="nav tags"><ul class=tags><li><a href=/tags/go>go</a></li></ul></nav></div></article></main><footer><hr><a class=soc href=https://github.com/tomial title=Github><i data-feather=github></i></a>|⚡️
-2021 © Tomial | Modified <a href=https://github.com/athul/archie>Archie Theme</a> | Built with <a href=https://gohugo.io>Hugo</a></footer><script>feather.replace()</script></div></body></html>
+<a href=/about>关于</a></nav></header><main><article><div class=title><h1 class=title>Go Cli工具详解(get,install,clean等)</h1><div class=meta style=margin-bottom:3em>最后编辑于 2021-03-19</div></div><section class=body><p>本文总结了 Go 1.16 后 Go 命令行工具使用需要注意的地方</p><p>文章一开头需要明确一下<code>module</code>的定义，一个<code>module</code>就是很多<code>package</code>的集合，一个包含 go.mod 的文件夹就是一个<code>module</code>，其包含了该文件夹下面的所有 package，当然还存在 <code>module</code> 嵌套的情况，比较少见不作讨论。</p><h1 id=get>get</h1><h2 id=使用示例>使用示例：</h2><div class=highlight><div style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#776e71># Upgrade a specific module.</span>
+</span></span><span style=display:flex><span>$ go get -d golang.org/x/net
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#776e71># Upgrade modules that provide packages imported by packages in the main module.</span>
+</span></span><span style=display:flex><span>$ go get -d -u ./...
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#776e71># Upgrade or downgrade to a specific version of a module.</span>
+</span></span><span style=display:flex><span>$ go get -d golang.org/x/text@v0.3.2
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#776e71># Update to the commit on the module&#39;s master branch.</span>
+</span></span><span style=display:flex><span>$ go get -d golang.org/x/text@master
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#776e71># Remove a dependency on a module and downgrade modules that require it</span>
+</span></span><span style=display:flex><span><span style=color:#776e71># to versions that don&#39;t require it.</span>
+</span></span><span style=display:flex><span>$ go get -d golang.org/x/text@none
+</span></span></code></pre></td></tr></table></div></div><p>官方文档给 get 的定义是：</p><blockquote><p>The go get command updates module dependencies in the go.mod file for the main module, then builds and installs packages listed on the command line.
+Go 命令更新 main module 在 go.mod 文件中的依赖项，然后编译安装二进制</p></blockquote><p>可以看到，go 1.16 中 get 还是有安装二进制的功能的，但是官方更推荐 install 来安装二进制，之后版本 get 安装二进制的功能会被去掉，所以给项目添加依赖只需要用<code>go get -d &lt;module-path></code>，这里的 d 告诉 get 下载完源码后停止：</p><blockquote><p>The -d flag instructs get not to build or install packages. get will only update go.mod and download source code needed to build packages.</p></blockquote><h1 id=install>Install</h1><p>Go 1.16 的更新日志中提到：</p><blockquote><p>go install, with or without a version suffix (as described above), is now the recommended way to build and install packages in module mode. go get should be used with the -d flag to adjust the current module&rsquo;s dependencies without building packages, and use of go get to build and install packages is deprecated. In a future release, the -d flag will always be enabled.</p></blockquote><p>推荐<code>go install</code>用于构建及安装 packages,<code>go get</code> 应该搭配<code>-d</code>一起使用，不推荐使用<code>go get</code>来构建安装 packages。</p><blockquote><p>The go install command builds and installs the packages named by the paths on the command line. Executables (main packages) are installed to the directory named by the GOBIN environment variable</p></blockquote><p><code>go install</code>将 packages 构建并安装到<code>$GOBIN</code>里。</p><h2 id=使用示例-1>使用示例：</h2><div class=highlight><div style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#776e71># Install the latest version of a program,</span>
+</span></span><span style=display:flex><span><span style=color:#776e71># ignoring go.mod in the current directory (if any).</span>
+</span></span><span style=display:flex><span>$ go install golang.org/x/tools/gopls@latest
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#776e71># Install a specific version of a program.</span>
+</span></span><span style=display:flex><span>$ go install golang.org/x/tools/gopls@v0.6.4
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#776e71># Install a program at the version selected by the module in the current directory.</span>
+</span></span><span style=display:flex><span>$ go install golang.org/x/tools/gopls
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#776e71># Install all programs in a directory.</span>
+</span></span><span style=display:flex><span>$ go install ./cmd/...
+</span></span></code></pre></td></tr></table></div></div><h1 id=参考资料>参考资料：</h1><ul><li><a href=https://golang.org/doc/go1.16#go-command>Go 1.16 Release Notes</a></li><li><a href=https://golang.org/ref/mod#go-get>Go Modules Reference</a></li></ul></section><div class=post-tags><nav class="nav tags"><ul class=tags><li><a href=/tags/go>go</a></li></ul></nav></div></article></main><footer><hr><a class=soc href=https://github.com/tomial title=Github><i data-feather=github></i></a>|⚡️
+2024 © Tomial | Modified <a href=https://github.com/athul/archie>Archie Theme</a> | Built with <a href=https://gohugo.io>Hugo</a></footer><script>feather.replace()</script></div></body></html>
