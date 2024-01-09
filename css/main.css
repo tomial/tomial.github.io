@@ -235,6 +235,7 @@ svg{
   display: flex;
   position: relative;
   border-radius: 10px;
+  overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
 div.highlight div {
