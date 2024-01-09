@@ -21,45 +21,45 @@
 </code></pre><h4 id=样例输出>样例输出</h4><pre tabindex=0><code>1.000000
 125.000000
 60.500000
-</code></pre><h3 id=题解>题解</h3><p>给出n的值和n个点的坐标，求这几个点组成的多边形的面积。其中所有的点横纵坐标都大于0，且最后一个点在y轴上，故这个多边形在第一象限上。</p><p>公式：<code>area = |(x1y2 - y1x2) + (x2y3 - y2x3) + ... (xn-1yn - yn-1xn)/2|</code></p><h3 id=代码>代码：</h3><div class=highlight><div style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#5bc4bf>import</span> <span style=color:#fec418>java.util.Scanner</span>;
-</span></span><span style=display:flex><span><span style=color:#815ba4>public</span> <span style=color:#815ba4>class</span> <span style=color:#fec418>Polygon</span> {
-</span></span><span style=display:flex><span>  <span style=color:#815ba4>public</span> <span style=color:#815ba4>static</span> <span style=color:#fec418>void</span> <span style=color:#06b6ef>main</span>(String<span style=color:#5bc4bf>[]</span> args) {
-</span></span><span style=display:flex><span>    Scanner input <span style=color:#5bc4bf>=</span> <span style=color:#815ba4>new</span> Scanner(System.<span style=color:#06b6ef>in</span>);
-</span></span><span style=display:flex><span>    <span style=color:#fec418>int</span> c <span style=color:#5bc4bf>=</span> input.<span style=color:#06b6ef>nextInt</span>();
-</span></span><span style=display:flex><span>    <span style=color:#815ba4>while</span>(c<span style=color:#5bc4bf>--</span> <span style=color:#5bc4bf>&gt;</span> 0) {
-</span></span><span style=display:flex><span>      <span style=color:#fec418>int</span> pn <span style=color:#5bc4bf>=</span> input.<span style=color:#06b6ef>nextInt</span>();
-</span></span><span style=display:flex><span>      <span style=color:#fec418>int</span><span style=color:#5bc4bf>[][]</span> p <span style=color:#5bc4bf>=</span> <span style=color:#815ba4>new</span> <span style=color:#fec418>int</span><span style=color:#5bc4bf>[</span>pn<span style=color:#5bc4bf>][</span>2<span style=color:#5bc4bf>]</span>;
-</span></span><span style=display:flex><span>      <span style=color:#815ba4>for</span>(<span style=color:#fec418>int</span> i <span style=color:#5bc4bf>=</span> 0; i <span style=color:#5bc4bf>&lt;</span> pn; i <span style=color:#5bc4bf>++</span>) {
-</span></span><span style=display:flex><span>        p<span style=color:#5bc4bf>[</span>i<span style=color:#5bc4bf>][</span>0<span style=color:#5bc4bf>]</span> <span style=color:#5bc4bf>=</span> input.<span style=color:#06b6ef>nextInt</span>();
-</span></span><span style=display:flex><span>        p<span style=color:#5bc4bf>[</span>i<span style=color:#5bc4bf>][</span>1<span style=color:#5bc4bf>]</span> <span style=color:#5bc4bf>=</span> input.<span style=color:#06b6ef>nextInt</span>();
+</code></pre><h3 id=题解>题解</h3><p>给出n的值和n个点的坐标，求这几个点组成的多边形的面积。其中所有的点横纵坐标都大于0，且最后一个点在y轴上，故这个多边形在第一象限上。</p><p>公式：<code>area = |(x1y2 - y1x2) + (x2y3 - y2x3) + ... (xn-1yn - yn-1xn)/2|</code></p><h3 id=代码>代码：</h3><div class=highlight><div style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">21
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#94e2d5>import</span> <span style=color:#fab387>java.util.Scanner</span>;
+</span></span><span style=display:flex><span><span style=color:#f38ba8>public</span> <span style=color:#f38ba8>class</span> <span style=color:#f9e2af>Polygon</span> {
+</span></span><span style=display:flex><span>  <span style=color:#f38ba8>public</span> <span style=color:#f38ba8>static</span> <span style=color:#f38ba8>void</span> <span style=color:#89b4fa>main</span>(String<span style=color:#89dceb;font-weight:700>[]</span> args) {
+</span></span><span style=display:flex><span>    Scanner input <span style=color:#89dceb;font-weight:700>=</span> <span style=color:#cba6f7>new</span> Scanner(System.<span style=color:#89b4fa>in</span>);
+</span></span><span style=display:flex><span>    <span style=color:#f38ba8>int</span> c <span style=color:#89dceb;font-weight:700>=</span> input.<span style=color:#89b4fa>nextInt</span>();
+</span></span><span style=display:flex><span>    <span style=color:#cba6f7>while</span>(c<span style=color:#89dceb;font-weight:700>--</span> <span style=color:#89dceb;font-weight:700>&gt;</span> 0) {
+</span></span><span style=display:flex><span>      <span style=color:#f38ba8>int</span> pn <span style=color:#89dceb;font-weight:700>=</span> input.<span style=color:#89b4fa>nextInt</span>();
+</span></span><span style=display:flex><span>      <span style=color:#f38ba8>int</span><span style=color:#89dceb;font-weight:700>[][]</span> p <span style=color:#89dceb;font-weight:700>=</span> <span style=color:#cba6f7>new</span> <span style=color:#f38ba8>int</span><span style=color:#89dceb;font-weight:700>[</span>pn<span style=color:#89dceb;font-weight:700>][</span>2<span style=color:#89dceb;font-weight:700>]</span>;
+</span></span><span style=display:flex><span>      <span style=color:#cba6f7>for</span>(<span style=color:#f38ba8>int</span> i <span style=color:#89dceb;font-weight:700>=</span> 0; i <span style=color:#89dceb;font-weight:700>&lt;</span> pn; i <span style=color:#89dceb;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>        p<span style=color:#89dceb;font-weight:700>[</span>i<span style=color:#89dceb;font-weight:700>][</span>0<span style=color:#89dceb;font-weight:700>]</span> <span style=color:#89dceb;font-weight:700>=</span> input.<span style=color:#89b4fa>nextInt</span>();
+</span></span><span style=display:flex><span>        p<span style=color:#89dceb;font-weight:700>[</span>i<span style=color:#89dceb;font-weight:700>][</span>1<span style=color:#89dceb;font-weight:700>]</span> <span style=color:#89dceb;font-weight:700>=</span> input.<span style=color:#89b4fa>nextInt</span>();
 </span></span><span style=display:flex><span>      }
-</span></span><span style=display:flex><span>      <span style=color:#fec418>double</span> sum <span style=color:#5bc4bf>=</span> 0;
-</span></span><span style=display:flex><span>      <span style=color:#815ba4>for</span>(<span style=color:#fec418>int</span> i <span style=color:#5bc4bf>=</span> 0; i <span style=color:#5bc4bf>&lt;</span> p.<span style=color:#06b6ef>length</span> <span style=color:#5bc4bf>-</span> 1; i<span style=color:#5bc4bf>++</span>) {
-</span></span><span style=display:flex><span>        sum <span style=color:#5bc4bf>+=</span> p<span style=color:#5bc4bf>[</span>i<span style=color:#5bc4bf>][</span>0<span style=color:#5bc4bf>]</span> <span style=color:#5bc4bf>*</span> p<span style=color:#5bc4bf>[</span>i<span style=color:#5bc4bf>+</span>1<span style=color:#5bc4bf>][</span>1<span style=color:#5bc4bf>]</span> <span style=color:#5bc4bf>-</span> p<span style=color:#5bc4bf>[</span>i<span style=color:#5bc4bf>][</span>1<span style=color:#5bc4bf>]</span> <span style=color:#5bc4bf>*</span> p<span style=color:#5bc4bf>[</span>i<span style=color:#5bc4bf>+</span>1<span style=color:#5bc4bf>][</span>0<span style=color:#5bc4bf>]</span>;
+</span></span><span style=display:flex><span>      <span style=color:#f38ba8>double</span> sum <span style=color:#89dceb;font-weight:700>=</span> 0;
+</span></span><span style=display:flex><span>      <span style=color:#cba6f7>for</span>(<span style=color:#f38ba8>int</span> i <span style=color:#89dceb;font-weight:700>=</span> 0; i <span style=color:#89dceb;font-weight:700>&lt;</span> p.<span style=color:#89b4fa>length</span> <span style=color:#89dceb;font-weight:700>-</span> 1; i<span style=color:#89dceb;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>        sum <span style=color:#89dceb;font-weight:700>+=</span> p<span style=color:#89dceb;font-weight:700>[</span>i<span style=color:#89dceb;font-weight:700>][</span>0<span style=color:#89dceb;font-weight:700>]</span> <span style=color:#89dceb;font-weight:700>*</span> p<span style=color:#89dceb;font-weight:700>[</span>i<span style=color:#89dceb;font-weight:700>+</span>1<span style=color:#89dceb;font-weight:700>][</span>1<span style=color:#89dceb;font-weight:700>]</span> <span style=color:#89dceb;font-weight:700>-</span> p<span style=color:#89dceb;font-weight:700>[</span>i<span style=color:#89dceb;font-weight:700>][</span>1<span style=color:#89dceb;font-weight:700>]</span> <span style=color:#89dceb;font-weight:700>*</span> p<span style=color:#89dceb;font-weight:700>[</span>i<span style=color:#89dceb;font-weight:700>+</span>1<span style=color:#89dceb;font-weight:700>][</span>0<span style=color:#89dceb;font-weight:700>]</span>;
 </span></span><span style=display:flex><span>      }
-</span></span><span style=display:flex><span>      sum <span style=color:#5bc4bf>/=</span> 2.<span style=color:#06b6ef>00</span>;
-</span></span><span style=display:flex><span>      System.<span style=color:#06b6ef>out</span>.<span style=color:#06b6ef>printf</span>(<span style=color:#48b685>&#34;%.6f\n&#34;</span>,Math.<span style=color:#06b6ef>abs</span>(sum));
+</span></span><span style=display:flex><span>      sum <span style=color:#89dceb;font-weight:700>/=</span> 2.<span style=color:#89b4fa>00</span>;
+</span></span><span style=display:flex><span>      System.<span style=color:#89b4fa>out</span>.<span style=color:#89b4fa>printf</span>(<span style=color:#a6e3a1>&#34;%.6f\n&#34;</span>,Math.<span style=color:#89b4fa>abs</span>(sum));
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>}

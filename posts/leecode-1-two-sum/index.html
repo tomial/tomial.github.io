@@ -3,30 +3,30 @@
 <a href=/posts>全部文章</a>
 <a href=/tags>标签</a>
 <a href=/about>关于</a></nav></header><main><article><div class=title><h1 class=title>Leecode.1.Two Sum (两数之和)</h1><div class=meta style=margin-bottom:3em>最后编辑于 2019-08-06</div></div><section class=body><h2 id=题目描述>题目描述：</h2><blockquote><p>LeetCode第一题，两数之和</p><p>Given an array of integers, return <code>indices</code> of the two numbers such that they add up to a specific target.</p><p>You may assume that each input would have <code>exactly</code> one solution, and you may not use the same element twice.</p></blockquote><p><strong>Example:</strong></p><blockquote><p>Given nums = [2, 7, 11, 15], target = 9,</p><p>Because nums[0] + nums[1] = 2 + 7 = 9,
-return [0, 1].</p></blockquote><h2 id=解释>解释：</h2><p>很简单的题目，给出一个数和一个数组，求数组里面两个和为该数的下标。</p><h2 id=代码>代码：</h2><div class=highlight><div style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#776e71>//暴力法</span>
-</span></span><span style=display:flex><span><span style=color:#815ba4>class</span> <span style=color:#fec418>Solution</span> {
-</span></span><span style=display:flex><span>    <span style=color:#815ba4>public</span> <span style=color:#fec418>int</span><span style=color:#5bc4bf>[]</span> <span style=color:#06b6ef>twoSum</span>(<span style=color:#fec418>int</span><span style=color:#5bc4bf>[]</span> nums, <span style=color:#fec418>int</span> target) {
-</span></span><span style=display:flex><span>        <span style=color:#815ba4>for</span>(<span style=color:#fec418>int</span> i <span style=color:#5bc4bf>=</span> 0; i <span style=color:#5bc4bf>&lt;</span> nums.<span style=color:#06b6ef>length</span>; i<span style=color:#5bc4bf>++</span>) {
-</span></span><span style=display:flex><span>            <span style=color:#815ba4>for</span>(<span style=color:#fec418>int</span> j <span style=color:#5bc4bf>=</span> i <span style=color:#5bc4bf>+</span> 1; j <span style=color:#5bc4bf>&lt;</span> nums.<span style=color:#06b6ef>length</span>; j<span style=color:#5bc4bf>++</span>) {
-</span></span><span style=display:flex><span>                <span style=color:#815ba4>if</span>(nums<span style=color:#5bc4bf>[</span>i<span style=color:#5bc4bf>]</span> <span style=color:#5bc4bf>+</span> nums<span style=color:#5bc4bf>[</span>j<span style=color:#5bc4bf>]</span> <span style=color:#5bc4bf>==</span> target) {
-</span></span><span style=display:flex><span>                    <span style=color:#815ba4>return</span> <span style=color:#815ba4>new</span> <span style=color:#fec418>int</span><span style=color:#5bc4bf>[]</span> { i, j };
+return [0, 1].</p></blockquote><h2 id=解释>解释：</h2><p>很简单的题目，给出一个数和一个数组，求数组里面两个和为该数的下标。</p><h2 id=代码>代码：</h2><div class=highlight><div style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">13
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#6c7086;font-style:italic>//暴力法</span>
+</span></span><span style=display:flex><span><span style=color:#f38ba8>class</span> <span style=color:#f9e2af>Solution</span> {
+</span></span><span style=display:flex><span>    <span style=color:#f38ba8>public</span> <span style=color:#f38ba8>int</span><span style=color:#89dceb;font-weight:700>[]</span> <span style=color:#89b4fa>twoSum</span>(<span style=color:#f38ba8>int</span><span style=color:#89dceb;font-weight:700>[]</span> nums, <span style=color:#f38ba8>int</span> target) {
+</span></span><span style=display:flex><span>        <span style=color:#cba6f7>for</span>(<span style=color:#f38ba8>int</span> i <span style=color:#89dceb;font-weight:700>=</span> 0; i <span style=color:#89dceb;font-weight:700>&lt;</span> nums.<span style=color:#89b4fa>length</span>; i<span style=color:#89dceb;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#cba6f7>for</span>(<span style=color:#f38ba8>int</span> j <span style=color:#89dceb;font-weight:700>=</span> i <span style=color:#89dceb;font-weight:700>+</span> 1; j <span style=color:#89dceb;font-weight:700>&lt;</span> nums.<span style=color:#89b4fa>length</span>; j<span style=color:#89dceb;font-weight:700>++</span>) {
+</span></span><span style=display:flex><span>                <span style=color:#cba6f7>if</span>(nums<span style=color:#89dceb;font-weight:700>[</span>i<span style=color:#89dceb;font-weight:700>]</span> <span style=color:#89dceb;font-weight:700>+</span> nums<span style=color:#89dceb;font-weight:700>[</span>j<span style=color:#89dceb;font-weight:700>]</span> <span style=color:#89dceb;font-weight:700>==</span> target) {
+</span></span><span style=display:flex><span>                    <span style=color:#cba6f7>return</span> <span style=color:#cba6f7>new</span> <span style=color:#f38ba8>int</span><span style=color:#89dceb;font-weight:700>[]</span> { i, j };
 </span></span><span style=display:flex><span>                }
 </span></span><span style=display:flex><span>            }
 </span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>        <span style=color:#815ba4>throw</span> <span style=color:#815ba4>new</span> IllegalArgumentException(<span style=color:#48b685>&#34;No two sum solution&#34;</span>);
+</span></span><span style=display:flex><span>        <span style=color:#cba6f7>throw</span> <span style=color:#cba6f7>new</span> IllegalArgumentException(<span style=color:#a6e3a1>&#34;No two sum solution&#34;</span>);
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></td></tr></table></div></div><p>总结：这题虽然很简单，但是提交了很多次才过，因为之前用的是排序的方法，忽略了一个问题：<strong>排序后无法获得原数组的下标</strong>，导致虽然获得了正确的数，但是下标却和原数组不一致，故做题时<strong>使用排序后若出现下标出错</strong>的问题考虑<strong>是否是排序</strong>造成的。</p></section><div class=post-tags><nav class="nav tags"><ul class=tags><li><a href=/tags/leetcode>LeetCode</a></li></ul></nav></div></article></main><footer><hr><a class=soc href=https://github.com/tomial title=Github><i data-feather=github></i></a>|⚡️
