@@ -1,0 +1,178 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Go Error Handling（1） - Tomial's Blog</title><meta name=viewport content="width=device-width,initial-scale=1">
+<meta property="og:image" content><meta property="og:title" content="Go Error Handling（1）"><meta property="og:description" content="Go没有异常这类机制，与其他语言中的错误处理不太一样，而是用error这个built-in类型来表示错误。"><meta property="og:type" content="article"><meta property="og:url" content="https://tomial.github.io/posts/go-error-handling-1/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-01-12T14:26:22+08:00"><meta property="article:modified_time" content="2024-01-12T14:26:22+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Go Error Handling（1）"><meta name=twitter:description content="Go没有异常这类机制，与其他语言中的错误处理不太一样，而是用error这个built-in类型来表示错误。"><script src=https://tomial.github.io/js/feather.min.js></script><link href=https://tomial.github.io/css/fonts.css rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://tomial.github.io/css/main.css><link rel=stylesheet type=text/css href=https://tomial.github.io/css/dark.css></head><body><div class=content><header><div class=main><a href=https://tomial.github.io/>Tomial's Blog</a></div><nav><a href=/>主页</a>
+<a href=/posts>全部文章</a>
+<a href=/tags>标签</a>
+<a href=/about>关于</a></nav></header><main><article><div class=title><h1 class=title>Go Error Handling（1）</h1><div class=meta style=margin-bottom:3em>最后编辑于 2024-01-12</div></div><section class=body><p>Go没有异常这类机制，与其他语言中的错误处理不太一样，而是用<code>error</code>这个built-in类型来表示错误。</p><h2 id=error类型的定义>error类型的定义</h2><p>error是一个接口类型，在 <em>universe block</em> 中定义：</p><blockquote><p><a href=https://go.dev/ref/spec#Predeclared_identifiers>The universe block encompasses all Go source text.</a></p></blockquote><div class=highlight><div style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f38ba8>type</span> <span style=color:#f38ba8>error</span> <span style=color:#f38ba8>interface</span> {
+</span></span><span style=display:flex><span>    <span style=color:#89b4fa>Error</span>() <span style=color:#f38ba8>string</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><p>即实现了<code>Error() string</code>方法的类型都可以作为error，最常用的实现是error包私有的errorString类型：</p><div class=highlight><div style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">15
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#6c7086;font-style:italic>// errorString is a trivial implementation of error.
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span><span style=color:#f38ba8>type</span> errorString <span style=color:#f38ba8>struct</span> {
+</span></span><span style=display:flex><span>    s <span style=color:#f38ba8>string</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic>// 使用Error()即可获取错误信息：
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span><span style=color:#f38ba8>func</span> (e <span style=color:#89dceb;font-weight:700>*</span>errorString) <span style=color:#89b4fa>Error</span>() <span style=color:#f38ba8>string</span> {
+</span></span><span style=display:flex><span>    <span style=color:#cba6f7>return</span> e.s
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic>// New returns an error that formats as the given text.
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic>// 一般都用`error.New(str)`创建它：
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span><span style=color:#f38ba8>func</span> <span style=color:#89b4fa>New</span>(text <span style=color:#f38ba8>string</span>) <span style=color:#f38ba8>error</span> {
+</span></span><span style=display:flex><span>    <span style=color:#cba6f7>return</span> <span style=color:#89dceb;font-weight:700>&amp;</span>errorString{text}
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><h2 id=error处理技巧>error处理技巧</h2><p>有时<code>Error()</code>方法缺少一些重要信息，例如<code>json.SyntaxError</code>中的<code>Error()</code>连offset都没有提供，仅凭msg无法定位错误：</p><div class=highlight><div style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f38ba8>type</span> SyntaxError <span style=color:#f38ba8>struct</span> {
+</span></span><span style=display:flex><span>	msg    <span style=color:#f38ba8>string</span> <span style=color:#6c7086;font-style:italic>// description of error
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span>	Offset <span style=color:#f38ba8>int64</span>  <span style=color:#6c7086;font-style:italic>// error occurred after reading Offset bytes
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f38ba8>func</span> (e <span style=color:#89dceb;font-weight:700>*</span>SyntaxError) <span style=color:#89b4fa>Error</span>() <span style=color:#f38ba8>string</span> { <span style=color:#cba6f7>return</span> e.msg }
+</span></span></code></pre></td></tr></table></div></div><p>对于这种情况，可以使用<a href=https://go.dev/doc/go_spec.html#Type_assertions>type assertion</a>来针对特定error类型获取其中的字段：</p><div class=highlight><div style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#cba6f7>if</span> err <span style=color:#89dceb;font-weight:700>:=</span> dec.<span style=color:#89b4fa>Decode</span>(<span style=color:#89dceb;font-weight:700>&amp;</span>val); err <span style=color:#89dceb;font-weight:700>!=</span> <span style=color:#fab387>nil</span> {
+</span></span><span style=display:flex><span>    <span style=color:#6c7086;font-style:italic>// 假如err是json.SyntaxError
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span>    <span style=color:#cba6f7>if</span> serr, ok <span style=color:#89dceb;font-weight:700>:=</span> err.(<span style=color:#89dceb;font-weight:700>*</span>json.SyntaxError); ok {
+</span></span><span style=display:flex><span>        <span style=color:#6c7086;font-style:italic>// 获取报错时的Offset
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span>        line, col <span style=color:#89dceb;font-weight:700>:=</span> <span style=color:#89b4fa>findLine</span>(f, serr.Offset)
+</span></span><span style=display:flex><span>        <span style=color:#cba6f7>return</span> fmt.<span style=color:#89b4fa>Errorf</span>(<span style=color:#a6e3a1>&#34;%s:%d:%d: %v&#34;</span>, f.<span style=color:#89b4fa>Name</span>(), line, col, err)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#cba6f7>return</span> err
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><p>error接口只有Error()一个方法，有时一些error实现会提供额外的方法，例如<code>net.Error</code>：</p><div class=highlight><div style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#94e2d5>package</span> net
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f38ba8>type</span> Error <span style=color:#f38ba8>interface</span> {
+</span></span><span style=display:flex><span>    <span style=color:#f38ba8>error</span>
+</span></span><span style=display:flex><span>    <span style=color:#89b4fa>Timeout</span>() <span style=color:#f38ba8>bool</span>   <span style=color:#6c7086;font-style:italic>// Is the error a timeout?
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span>    <span style=color:#89b4fa>Temporary</span>() <span style=color:#f38ba8>bool</span> <span style=color:#6c7086;font-style:italic>// Is the error temporary?
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span>}
+</span></span></code></pre></td></tr></table></div></div><h2 id=简化重复的错误处理>简化重复的错误处理</h2><blockquote><p>In Go, error handling is important. The language’s design and conventions encourage you to explicitly check for errors where they occur (as distinct from the convention in other languages of throwing exceptions and sometimes catching them). In some cases this makes Go code verbose, but fortunately there are some techniques you can use to minimize repetitive error handling.</p><p>Go鼓励在错误发生时就检查他们，某种情况下这使得Go代码显得有点臃肿，但幸运的是有些技巧可以简化错误处理</p></blockquote><p>例如下面是一个http包的<code>handler</code>：</p><div class=highlight><div style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">17
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f38ba8>func</span> <span style=color:#89b4fa>handler</span>(w http.ResponseWriter, r <span style=color:#89dceb;font-weight:700>*</span>http.Request) {
+</span></span><span style=display:flex><span>  <span style=color:#6c7086;font-style:italic>// content, err := funcMayReturnsError()
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span>  <span style=color:#6c7086;font-style:italic>// 错误处理
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span>  <span style=color:#6c7086;font-style:italic>// 此处也可以是err type assertion，为简化写成字符串判断
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span>	<span style=color:#cba6f7>if</span> r.URL.RawQuery <span style=color:#89dceb;font-weight:700>==</span> <span style=color:#a6e3a1>&#34;error1&#34;</span> {
+</span></span><span style=display:flex><span>    http.<span style=color:#89b4fa>Error</span>(w, <span style=color:#a6e3a1>&#34;Some Error&#34;</span>, <span style=color:#fab387>500</span>)
+</span></span><span style=display:flex><span>	} <span style=color:#cba6f7>else</span> <span style=color:#cba6f7>if</span> r.URL.RawQuery <span style=color:#89dceb;font-weight:700>==</span> <span style=color:#a6e3a1>&#34;error2&#34;</span> {
+</span></span><span style=display:flex><span>    http.<span style=color:#89b4fa>Error</span>(w, <span style=color:#a6e3a1>&#34;Some Other Error&#34;</span>, <span style=color:#fab387>500</span>)
+</span></span><span style=display:flex><span>  } <span style=color:#cba6f7>else</span> {
+</span></span><span style=display:flex><span>    w.<span style=color:#89b4fa>Write</span>([]<span style=color:#89dceb>byte</span>(<span style=color:#a6e3a1>&#34;Some Content&#34;</span>))
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic>// 注册handler
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span>http.<span style=color:#89b4fa>HandleFunc</span>(<span style=color:#a6e3a1>&#34;/&#34;</span>, handler)
+</span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic>// 运行server
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span>http.<span style=color:#89b4fa>ListenAndServe</span>(<span style=color:#a6e3a1>&#34;:8080&#34;</span>, <span style=color:#fab387>nil</span>)
+</span></span></code></pre></td></tr></table></div></div><p>在这个handler中按错误类型进行特定的处理，一个handler还好，如果写了几十个handler就会出现很多这类重复的错误处理代码，而且修改起来非常困难，如果能让handler返回错误再统一处理就会方便很多，但http.Handler不支持返回error的类型：</p><div class=highlight><div style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f38ba8>type</span> Handler <span style=color:#f38ba8>interface</span> {
+</span></span><span style=display:flex><span>	<span style=color:#89b4fa>ServeHTTP</span>(ResponseWriter, <span style=color:#89dceb;font-weight:700>*</span>Request)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><p>为解决这个问题，可以通过以下技巧实现：</p><p>首先将handler改为返回error的格式，以便后续处理：</p><div class=highlight><div style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f38ba8>func</span> <span style=color:#89b4fa>handler</span>(w http.ResponseWriter, r <span style=color:#89dceb;font-weight:700>*</span>http.Request) <span style=color:#f38ba8>error</span> {
+</span></span><span style=display:flex><span>  <span style=color:#6c7086;font-style:italic>// 业务代码
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span>  content, err <span style=color:#89dceb;font-weight:700>:=</span> <span style=color:#89b4fa>funcMayReturnsError</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#cba6f7>if</span> err <span style=color:#89dceb;font-weight:700>!=</span> <span style=color:#fab387>nil</span> {
+</span></span><span style=display:flex><span>    <span style=color:#6c7086;font-style:italic>// 正常响应
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span>    w.<span style=color:#89b4fa>Write</span>([]<span style=color:#89dceb>byte</span>(<span style=color:#a6e3a1>&#34;Some Content&#34;</span>))
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#cba6f7>return</span> err
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><p>handler返回error后原先HandleFunc会报错，因为<code>http.Handler</code>并不支持返回错误的handler，这时声明一个<code>appHandler</code>：</p><div class=highlight><div style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#6c7086;font-style:italic>// 先声明一个满足我们自定义handler的接口的类型
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span><span style=color:#f38ba8>type</span> <span style=color:#89b4fa>appHandler</span>(w http.ResponseWriter, r <span style=color:#89dceb;font-weight:700>*</span>http.Request) <span style=color:#f38ba8>error</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic>// 为appHandler实现Handler接口
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span><span style=color:#f38ba8>func</span> (fn appHandler) <span style=color:#89b4fa>ServeHttp</span>(w http.ResponseWriter, r <span style=color:#89dceb;font-weight:700>*</span>http.Request) {
+</span></span><span style=display:flex><span>  <span style=color:#cba6f7>if</span> err <span style=color:#89dceb;font-weight:700>:=</span> <span style=color:#89b4fa>fn</span>(w, r); err <span style=color:#89dceb;font-weight:700>!=</span> <span style=color:#fab387>nil</span> {
+</span></span><span style=display:flex><span>    <span style=color:#6c7086;font-style:italic>// 在这里集中处理错误
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span>    http.<span style=color:#89b4fa>Error</span>(w, <span style=color:#a6e3a1>&#34;Some Error&#34;</span>, <span style=color:#fab387>500</span>)
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><p>http库的调用需要改为<code>http.Handle</code>，因为<code>http.HandleFunc</code>只支持传递匿名函数作为参数：</p><div class=highlight><div style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#6c7086;font-style:italic>// 由于appHandler满足handler的接口，所以可以将handler转为appHandler类型
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic>// 并传递给http.Handle
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic>// ...其他代码省略
+</span></span></span><span style=display:flex><span><span style=color:#6c7086;font-style:italic></span>http.<span style=color:#89b4fa>Handle</span>(<span style=color:#a6e3a1>&#34;/&#34;</span>, <span style=color:#89b4fa>appHandler</span>(handler))
+</span></span><span style=display:flex><span>http.<span style=color:#89b4fa>ListenAndServe</span>(<span style=color:#a6e3a1>&#34;:8080&#34;</span>, <span style=color:#fab387>nil</span>)
+</span></span></code></pre></td></tr></table></div></div><p>改为这种设计后所有handler的错误都可以在appHandler类型的<code>ServeHttp</code>中处理，还可以让handler返回自定义的错误类型、定制错误的响应页面/格式、增加错误日志、获取backtrace、在appHandler对panic进行<code>recover</code>后统一处理等，十分方便</p><p>参考资料：</p><p><a href=https://go.dev/blog/error-handling-and-go>Error handling and Go</a></p></section><div class=post-tags><nav class="nav tags"><ul class=tags><li><a href=/tags/go>go</a></li></ul></nav></div></article></main><footer><hr><a class=soc href=https://github.com/tomial title=Github><i data-feather=github></i></a>|⚡️
+2024 © Tomial | Modified <a href=https://github.com/athul/archie>Archie Theme</a> | Built with <a href=https://gohugo.io>Hugo</a></footer><script>feather.replace()</script></div></body></html>
