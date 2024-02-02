@@ -72,8 +72,22 @@ ul li::before {
 
 /* Images */
 img {
-  border: 3px solid #ececec;
-  max-width: 100%;
+  /* border: 3px solid #ececec; */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+
+table {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-collapse: collapse;
+}
+td, th {
+  border: 1px solid white;
 }
 
 figure {
