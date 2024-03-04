@@ -249,7 +249,7 @@ svg{
   display: flex;
   position: relative;
   border-radius: 10px;
-  overflow: scroll;
+  overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
 div.highlight div {

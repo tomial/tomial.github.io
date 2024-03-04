@@ -13,7 +13,7 @@
 44
 394
 9998
-</code></pre><h3 id=题解>题解：</h3><p>给出n个测试样例，每个样例有4个100以内的正整数，求<code>A1×A2 − A3×A4</code>的最大值。由于只有4个数，所以可以直接求出所有数两两相乘的所有组合，只有3!个，再将这些数排序用最大的减去最小的即是解。</p><h3 id=代码>代码：</h3><div class=highlight><div style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 1
+</code></pre><h3 id=题解>题解：</h3><p>给出n个测试样例，每个样例有4个100以内的正整数，求<code>A1×A2 − A3×A4</code>的最大值。由于只有4个数，所以可以直接求出所有数两两相乘的所有组合，只有3!个，再将这些数排序用最大的减去最小的即是解。</p><h3 id=代码>代码：</h3><div class=highlight><div style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c"> 4
@@ -37,7 +37,7 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">22
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">23
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c">24
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#94e2d5>import</span> <span style=color:#fab387>java.util.Scanner</span>;
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#94e2d5>import</span> <span style=color:#fab387>java.util.Scanner</span>;
 </span></span><span style=display:flex><span><span style=color:#94e2d5>import</span> <span style=color:#fab387>java.util.Arrays</span>;
 </span></span><span style=display:flex><span><span style=color:#f38ba8>public</span> <span style=color:#f38ba8>class</span> <span style=color:#f9e2af>TheDif</span> {
 </span></span><span style=display:flex><span>  <span style=color:#f38ba8>public</span> <span style=color:#f38ba8>static</span> <span style=color:#f38ba8>void</span> <span style=color:#89b4fa>main</span>(String<span style=color:#89dceb;font-weight:700>[]</span> args) {
