@@ -1,1 +1,162 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Java on Tomial's Blog</title><link>https://tomial.github.io/categories/java/</link><description>Recent content in Java on Tomial's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>© Tomial</copyright><lastBuildDate>Fri, 10 Apr 2020 17:49:32 +0000</lastBuildDate><atom:link href="https://tomial.github.io/categories/java/index.xml" rel="self" type="application/rss+xml"/><item><title>为什么Arrays.asList()返回的列表不能增加元素</title><link>https://tomial.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88arrays.aslist%E8%BF%94%E5%9B%9E%E7%9A%84%E5%88%97%E8%A1%A8%E4%B8%8D%E8%83%BD%E5%A2%9E%E5%8A%A0%E5%85%83%E7%B4%A0/</link><pubDate>Fri, 10 Apr 2020 17:49:32 +0000</pubDate><guid>https://tomial.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88arrays.aslist%E8%BF%94%E5%9B%9E%E7%9A%84%E5%88%97%E8%A1%A8%E4%B8%8D%E8%83%BD%E5%A2%9E%E5%8A%A0%E5%85%83%E7%B4%A0/</guid><description>1 2 3 String[] arr = {&amp;#34;A&amp;#34;, &amp;#34;B&amp;#34;}; List&amp;lt;String&amp;gt; list = Arrays.asList(arr); list.add(&amp;#34;C&amp;#34;); //java.lang.UnsupportedOperationException 如果调用Arrays.asList()方法返回列表的add方法会抛出异常，这是什么原因呢？ 在asList方法源码</description></item><item><title>JavaBean和Serializable,Mbeans</title><link>https://tomial.github.io/posts/javabean%E5%92%8Cserializable-mbeans/</link><pubDate>Mon, 25 Nov 2019 23:15:45 +0000</pubDate><guid>https://tomial.github.io/posts/javabean%E5%92%8Cserializable-mbeans/</guid><description>Java Bean JavaBean简单来说是一种约定俗成的标准。 所有的属性都是private的 有一个public的无参构造函数 实现了Serializabl</description></item><item><title>更高效的取余运算</title><link>https://tomial.github.io/posts/%E6%9B%B4%E9%AB%98%E6%95%88%E7%9A%84%E5%8F%96%E4%BD%99%E8%BF%90%E7%AE%97/</link><pubDate>Mon, 12 Aug 2019 12:30:57 +0000</pubDate><guid>https://tomial.github.io/posts/%E6%9B%B4%E9%AB%98%E6%95%88%E7%9A%84%E5%8F%96%E4%BD%99%E8%BF%90%E7%AE%97/</guid><description>平常的取余一般用%运算符，在学习ArrayDeque时发现其使用了另一种取余方法： elements[head = (head - 1) &amp;amp; (elements.length - 1)] = e; 其中head是该双向队列的头部下标，</description></item><item><title>为什么Java中数组是协变的而泛型不是?</title><link>https://tomial.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88java%E4%B8%AD%E6%95%B0%E7%BB%84%E6%98%AF%E5%8D%8F%E5%8F%98%E7%9A%84%E8%80%8C%E6%B3%9B%E5%9E%8B%E4%B8%8D%E6%98%AF/</link><pubDate>Sat, 10 Aug 2019 18:15:14 +0000</pubDate><guid>https://tomial.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88java%E4%B8%AD%E6%95%B0%E7%BB%84%E6%98%AF%E5%8D%8F%E5%8F%98%E7%9A%84%E8%80%8C%E6%B3%9B%E5%9E%8B%E4%B8%8D%E6%98%AF/</guid><description>什么是协变? Effective Java中写到： 1.数组和泛型有两个主要的不同点。第一个是数组是协变的(covariant)，而泛型是不变的(invarian</description></item><item><title>Java中的二进制</title><link>https://tomial.github.io/posts/java%E4%B8%AD%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/</link><pubDate>Wed, 15 May 2019 23:20:33 +0000</pubDate><guid>https://tomial.github.io/posts/java%E4%B8%AD%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/</guid><description>Java SE 7之后可以使用二进制来定义byte,short,int,long这些整型变量。要使用二进制来表示整形，需要在数字开头带上0b或者0B，如</description></item><item><title>Java8的Lambda表达式与类型检查、推断及限制</title><link>https://tomial.github.io/posts/java8%E7%9A%84lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5%E6%8E%A8%E6%96%AD%E5%8F%8A%E9%99%90%E5%88%B6/</link><pubDate>Tue, 23 Apr 2019 22:12:15 +0000</pubDate><guid>https://tomial.github.io/posts/java8%E7%9A%84lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5%E6%8E%A8%E6%96%AD%E5%8F%8A%E9%99%90%E5%88%B6/</guid><description>为了全面了解Lambda表达式，我们应该知道Lambda的实际类型是什么。 类型检查 Lambda的类型**是从使用Lambda的上下文推断出来</description></item><item><title>Iterable和Iterator</title><link>https://tomial.github.io/posts/iterable%E5%92%8Citerator/</link><pubDate>Tue, 09 Apr 2019 22:27:12 +0000</pubDate><guid>https://tomial.github.io/posts/iterable%E5%92%8Citerator/</guid><description>Iterator和Iterable的内部实现 iterator为Java中的迭代器对象，是能够对List这样的集合进行迭代遍历的底层依赖。而i</description></item><item><title>Java正则表达式匹配模式及实例</title><link>https://tomial.github.io/posts/java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D%E6%A8%A1%E5%BC%8F%E5%8F%8A%E5%AE%9E%E4%BE%8B/</link><pubDate>Tue, 09 Apr 2019 01:08:58 +0000</pubDate><guid>https://tomial.github.io/posts/java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D%E6%A8%A1%E5%BC%8F%E5%8F%8A%E5%AE%9E%E4%BE%8B/</guid><description>正则表达式 匹配 示例 x 单个字符 Java匹配Java . 任意单个字符 Java匹配J..a (ab|cd) ab或cd ten匹配t(en|im) [abc] a或b或c Java</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Java on Tomial's Blog</title><link>https://tomial.github.io/categories/java/</link><description>Recent content in Java on Tomial's Blog</description><generator>Hugo</generator><language>zh-cn</language><copyright>© Tomial</copyright><lastBuildDate>Fri, 10 Apr 2020 17:49:32 +0000</lastBuildDate><atom:link href="https://tomial.github.io/categories/java/index.xml" rel="self" type="application/rss+xml"/><item><title>为什么Arrays.asList()返回的列表不能增加元素</title><link>https://tomial.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88arrays.aslist%E8%BF%94%E5%9B%9E%E7%9A%84%E5%88%97%E8%A1%A8%E4%B8%8D%E8%83%BD%E5%A2%9E%E5%8A%A0%E5%85%83%E7%B4%A0/</link><pubDate>Fri, 10 Apr 2020 17:49:32 +0000</pubDate><guid>https://tomial.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88arrays.aslist%E8%BF%94%E5%9B%9E%E7%9A%84%E5%88%97%E8%A1%A8%E4%B8%8D%E8%83%BD%E5%A2%9E%E5%8A%A0%E5%85%83%E7%B4%A0/</guid><description>&lt;div class="highlight">&lt;div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>String&lt;span style="color:#89dceb;font-weight:bold">[]&lt;/span> arr &lt;span style="color:#89dceb;font-weight:bold">=&lt;/span> {&lt;span style="color:#a6e3a1">&amp;#34;A&amp;#34;&lt;/span>, &lt;span style="color:#a6e3a1">&amp;#34;B&amp;#34;&lt;/span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>List&lt;span style="color:#89dceb;font-weight:bold">&amp;lt;&lt;/span>String&lt;span style="color:#89dceb;font-weight:bold">&amp;gt;&lt;/span> list &lt;span style="color:#89dceb;font-weight:bold">=&lt;/span> Arrays.&lt;span style="color:#89b4fa">asList&lt;/span>(arr);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>list.&lt;span style="color:#89b4fa">add&lt;/span>(&lt;span style="color:#a6e3a1">&amp;#34;C&amp;#34;&lt;/span>);	&lt;span style="color:#6c7086;font-style:italic">//java.lang.UnsupportedOperationException&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果调用&lt;code>Arrays.asList()&lt;/code>方法返回列表的add方法会抛出异常，这是什么原因呢？&lt;/p>
+&lt;p>在&lt;code>asList&lt;/code>方法源码可以看到&lt;/p></description></item><item><title>JavaBean和Serializable,Mbeans</title><link>https://tomial.github.io/posts/javabean%E5%92%8Cserializable-mbeans/</link><pubDate>Mon, 25 Nov 2019 23:15:45 +0000</pubDate><guid>https://tomial.github.io/posts/javabean%E5%92%8Cserializable-mbeans/</guid><description>&lt;h2 id="java-bean">Java Bean&lt;/h2>
+&lt;p>JavaBean简单来说是一种约定俗成的标准。&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>所有的属性都是&lt;code>private&lt;/code>的&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>有一个&lt;code>public&lt;/code>的无参构造函数&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>实现了&lt;code>Serializable&lt;/code>接口&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>可以看出，JavaBean就是一种惯例，按照要求实现的类就是一个JavaBean。&lt;/p></description></item><item><title>更高效的取余运算</title><link>https://tomial.github.io/posts/%E6%9B%B4%E9%AB%98%E6%95%88%E7%9A%84%E5%8F%96%E4%BD%99%E8%BF%90%E7%AE%97/</link><pubDate>Mon, 12 Aug 2019 12:30:57 +0000</pubDate><guid>https://tomial.github.io/posts/%E6%9B%B4%E9%AB%98%E6%95%88%E7%9A%84%E5%8F%96%E4%BD%99%E8%BF%90%E7%AE%97/</guid><description>&lt;p>平常的取余一般用&lt;code>%&lt;/code>运算符，在学习&lt;code>ArrayDeque&lt;/code>时发现其使用了另一种取余方法：&lt;/p>
+&lt;p>&lt;code>elements[head = (head - 1) &amp;amp; (elements.length - 1)] = e;&lt;/code>&lt;/p>
+&lt;p>其中&lt;code>head&lt;/code>是该双向队列的头部下标，这段代码既可以解决下标为负的情况又可以起到取余的作用，其中&lt;code>(head - 1) &amp;amp; (elements.length - 1)&lt;/code>起到了对&lt;code>elements.length&lt;/code> 取余的作用。&lt;/p></description></item><item><title>为什么Java中数组是协变的而泛型不是?</title><link>https://tomial.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88java%E4%B8%AD%E6%95%B0%E7%BB%84%E6%98%AF%E5%8D%8F%E5%8F%98%E7%9A%84%E8%80%8C%E6%B3%9B%E5%9E%8B%E4%B8%8D%E6%98%AF/</link><pubDate>Sat, 10 Aug 2019 18:15:14 +0000</pubDate><guid>https://tomial.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88java%E4%B8%AD%E6%95%B0%E7%BB%84%E6%98%AF%E5%8D%8F%E5%8F%98%E7%9A%84%E8%80%8C%E6%B3%9B%E5%9E%8B%E4%B8%8D%E6%98%AF/</guid><description>&lt;h3 id="什么是协变">什么是协变?&lt;/h3>
+&lt;p>Effective Java中写到：&lt;/p>
+&lt;p>1.数组和泛型有两个主要的不同点。第一个是数组是协变的(covariant)，而泛型是不变的(invariant)。&lt;/p>
+&lt;p>2.协变简单来说就是如果&lt;code>X&lt;/code>是&lt;code>Y&lt;/code>的子类型则&lt;code>X[]&lt;/code>也是 &lt;code>Y[]&lt;/code>的子类型。因为数组是协变的，&lt;code>String&lt;/code>是&lt;code>Object&lt;/code>的子类型，故：&lt;/p></description></item><item><title>Java中的二进制</title><link>https://tomial.github.io/posts/java%E4%B8%AD%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/</link><pubDate>Wed, 15 May 2019 23:20:33 +0000</pubDate><guid>https://tomial.github.io/posts/java%E4%B8%AD%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/</guid><description>&lt;p>Java SE 7之后可以使用二进制来定义&lt;code>byte,short,int,long&lt;/code>这些整型变量。要使用二进制来表示整形，需要在数字开头带上&lt;code>0b&lt;/code>或者&lt;code>0B&lt;/code>，如下所示：&lt;/p></description></item><item><title>Java8的Lambda表达式与类型检查、推断及限制</title><link>https://tomial.github.io/posts/java8%E7%9A%84lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5%E6%8E%A8%E6%96%AD%E5%8F%8A%E9%99%90%E5%88%B6/</link><pubDate>Tue, 23 Apr 2019 22:12:15 +0000</pubDate><guid>https://tomial.github.io/posts/java8%E7%9A%84lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5%E6%8E%A8%E6%96%AD%E5%8F%8A%E9%99%90%E5%88%B6/</guid><description>&lt;p>为了全面了解Lambda表达式，我们应该知道Lambda的实际类型是什么。&lt;/p>
+&lt;h2 id="类型检查">类型检查&lt;/h2>
+&lt;pre>&lt;code>Lambda的类型**是从使用Lambda的上下文推断出来的**。上下文(即`接受它传递的方法参数`或`变量`)所需要的类型称为`目标类型`。下面的例子说明了Lambda表达式工作时**类型检查**的过程：
+&lt;/code>&lt;/pre>
+&lt;div class="highlight">&lt;div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>List&lt;span style="color:#89dceb;font-weight:bold">&amp;lt;&lt;/span>Apple&lt;span style="color:#89dceb;font-weight:bold">&amp;gt;&lt;/span> heavierThan150g &lt;span style="color:#89dceb;font-weight:bold">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 	filter(inventory, (Apple a) &lt;span style="color:#89dceb;font-weight:bold">-&amp;gt;&lt;/span> a.&lt;span style="color:#89b4fa">getWeight&lt;/span>() &lt;span style="color:#89dceb;font-weight:bold">&amp;gt;&lt;/span> 150);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol>
+&lt;li>
+&lt;p>使用Lambda的&lt;strong>上下文所需的目标类型&lt;/strong>是什么？&lt;/p></description></item><item><title>Iterable和Iterator</title><link>https://tomial.github.io/posts/iterable%E5%92%8Citerator/</link><pubDate>Tue, 09 Apr 2019 22:27:12 +0000</pubDate><guid>https://tomial.github.io/posts/iterable%E5%92%8Citerator/</guid><description>&lt;h2 id="iterator和iterable的内部实现">Iterator和Iterable的内部实现&lt;/h2>
+&lt;p>&lt;code>iterator&lt;/code>为Java中的迭代器对象，是&lt;strong>能够对List这样的集合进行迭代遍历的底层依赖&lt;/strong>。而&lt;code>iterable&lt;/code>接口里&lt;code>定义了返回iterator的方法，相当于对iterator的封装，实现了iterable接口的类可以支持for each循环。&lt;/code>&lt;/p></description></item><item><title>Java正则表达式匹配模式及实例</title><link>https://tomial.github.io/posts/java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D%E6%A8%A1%E5%BC%8F%E5%8F%8A%E5%AE%9E%E4%BE%8B/</link><pubDate>Tue, 09 Apr 2019 01:08:58 +0000</pubDate><guid>https://tomial.github.io/posts/java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D%E6%A8%A1%E5%BC%8F%E5%8F%8A%E5%AE%9E%E4%BE%8B/</guid><description>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">正则表达式&lt;/th>
+ &lt;th style="text-align: center">匹配&lt;/th>
+ &lt;th style="text-align: center">示例&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>x&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">单个字符&lt;/td>
+ &lt;td style="text-align: center">Java匹配&lt;code>Java&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>.&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">任意单个字符&lt;/td>
+ &lt;td style="text-align: center">Java匹配&lt;code>J..a&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">(ab|cd)&lt;/td>
+ &lt;td style="text-align: center">ab或cd&lt;/td>
+ &lt;td style="text-align: center">ten匹配t(en|im)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>[abc]&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">a或b或c&lt;/td>
+ &lt;td style="text-align: center">Java匹配&lt;code>J[abc]va&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>[^abc]&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">abc外的字符&lt;/td>
+ &lt;td style="text-align: center">Java匹配&lt;code>J[^efg]va&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>[a-z]&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">a-z的任意字符&lt;/td>
+ &lt;td style="text-align: center">Java匹配&lt;code>[A-Z]av[a-z]&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>[^a-z]&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">除a-z的任意字符&lt;/td>
+ &lt;td style="text-align: center">Java匹配&lt;code>Jav[^b-z]&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>[a-e[m-p]]&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">a到e或m到p&lt;/td>
+ &lt;td style="text-align: center">Java匹配 &lt;code>[A-G[I-M]]av[a-d]&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>[a-e&amp;amp;&amp;amp;[c-p]]&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">a到e与c到p的交集&lt;/td>
+ &lt;td style="text-align: center">Java匹配 &lt;code>[A-P&amp;amp;&amp;amp;[I-M]]av[a-d]&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>\d&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">一个数字&lt;/td>
+ &lt;td style="text-align: center">123 匹配&lt;code>\\d&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>\D&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">一个非数字&lt;/td>
+ &lt;td style="text-align: center">$Java匹配&lt;code>[\\D][\\D]ava&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>w&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">单词字符&lt;/td>
+ &lt;td style="text-align: center">Java1匹配 &lt;code>[\\w]ava[\\w]&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>W&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">非单词字符&lt;/td>
+ &lt;td style="text-align: center">$Java匹配&lt;code>[\\W][\\w]ava&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>s&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">空白字符&lt;/td>
+ &lt;td style="text-align: center">Java 2匹配&lt;code>Java\\s2&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>p*&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">p模式出现0次或任意多次(贪婪匹配)&lt;/td>
+ &lt;td style="text-align: center">aaaaab匹配&lt;code>a*b&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>p+&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">p模式出现1次或任意多次&lt;/td>
+ &lt;td style="text-align: center">a匹配&lt;code>a+b*&lt;/code>, able匹配&lt;code>(ab)+.*&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>p?&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">p出现0或1次(非贪婪匹配，尽量少地匹配)&lt;/td>
+ &lt;td style="text-align: center">Java匹配&lt;code>J?Java&lt;/code>和&lt;code>J?ava&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>p{n}&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">p正好出现n次&lt;/td>
+ &lt;td style="text-align: center">aaaa匹配&lt;code>a{4}&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>p{n,}&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">p至少出现n次&lt;/td>
+ &lt;td style="text-align: center">aaaa匹配&lt;code>a{1,}&lt;/code>,a不匹配&lt;code>a{2,}&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>p{n,m}&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">p出现次数在n到m次之间&lt;/td>
+ &lt;td style="text-align: center">aaaa匹配&lt;code>a{1,9}&lt;/code>,abb不匹配&lt;code>a{2,9}bb&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>matches(regex:String) : boolean&lt;/code> : 如果字符串匹配模式，返回true&lt;/p></description></item></channel></rss>

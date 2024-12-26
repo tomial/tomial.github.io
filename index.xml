@@ -1,1 +1,230 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomial's Blog</title><link>https://tomial.github.io/</link><description>Recent content on Tomial's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>© Tomial</copyright><lastBuildDate>Thu, 29 Feb 2024 17:14:53 +0800</lastBuildDate><atom:link href="https://tomial.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>goroutine控制：WaitGroup解析</title><link>https://tomial.github.io/posts/goroutine/waitgroup/</link><pubDate>Thu, 29 Feb 2024 17:14:53 +0800</pubDate><guid>https://tomial.github.io/posts/goroutine/waitgroup/</guid><description>&lt;p>WaitGroup是Go经常使用的并发控制工具，它非常适合等待一组goroutine结束的场景&lt;/p></description></item><item><title>DNS</title><link>https://tomial.github.io/posts/dns/</link><pubDate>Fri, 02 Feb 2024 13:54:56 +0800</pubDate><guid>https://tomial.github.io/posts/dns/</guid><description>&lt;p>关于域名系统(Domain Name System)的笔记&lt;/p></description></item><item><title>Go Error Handling（1）</title><link>https://tomial.github.io/posts/go-error-handling-1/</link><pubDate>Fri, 12 Jan 2024 14:26:22 +0800</pubDate><guid>https://tomial.github.io/posts/go-error-handling-1/</guid><description>&lt;p>Go没有异常这类机制，与其他语言中的错误处理不太一样，而是用&lt;code>error&lt;/code>这个built-in类型来表示错误。&lt;/p></description></item><item><title>redlock-rb: redis分布式锁的ruby实现分析</title><link>https://tomial.github.io/posts/redlock-rb/</link><pubDate>Tue, 09 Jan 2024 13:30:01 +0800</pubDate><guid>https://tomial.github.io/posts/redlock-rb/</guid><description>&lt;p>redis的文档中提供了一个由redis作者antirez实现的分布式锁：&lt;a href="https://github.com/antirez/redlock-rb">redlock-rb&lt;/a>&lt;/p></description></item><item><title>关于我</title><link>https://tomial.github.io/about/</link><pubDate>Fri, 05 Jan 2024 00:00:00 +0000</pubDate><guid>https://tomial.github.io/about/</guid><description>本博客主题为基于catppuccin主题魔改的archie 中文字体：霞鹜新晰黑 代码字体：Drafting* Mono 个人项目： go-db：一个用于学</description></item><item><title>Docker bind Mounts和volume及tmpfs对比</title><link>https://tomial.github.io/posts/docker-bind-mounts%E5%92%8Cvolume%E5%8F%8Atmpfs%E5%AF%B9%E6%AF%94/</link><pubDate>Sat, 10 Apr 2021 17:37:28 +0800</pubDate><guid>https://tomial.github.io/posts/docker-bind-mounts%E5%92%8Cvolume%E5%8F%8Atmpfs%E5%AF%B9%E6%AF%94/</guid><description>&lt;p>本文总结了 bind Mounts 和 volume 及 tmpfs 三种 Docker 管理容器数据方式的区别&lt;/p></description></item><item><title>Docker Security总结</title><link>https://tomial.github.io/posts/docker-security%E6%80%BB%E7%BB%93/</link><pubDate>Tue, 06 Apr 2021 15:35:27 +0800</pubDate><guid>https://tomial.github.io/posts/docker-security%E6%80%BB%E7%BB%93/</guid><description>&lt;p>本文总结了 Docker 安全性相关的内容，主要来自 Docker 官方文档 &lt;a href="https://docs.docker.com/engine/security/">Docker security&lt;/a> 一文。&lt;/p></description></item><item><title>Shell常用工具总结</title><link>https://tomial.github.io/posts/shell%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%80%BB%E7%BB%93/</link><pubDate>Sun, 28 Mar 2021 12:47:04 +0800</pubDate><guid>https://tomial.github.io/posts/shell%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%80%BB%E7%BB%93/</guid><description>&lt;p>这篇文章用来记录一些 Shell 的技巧及好用的工具&lt;/p></description></item><item><title>Go Cli工具详解(get,install,clean等)</title><link>https://tomial.github.io/posts/go-cli%E5%B7%A5%E5%85%B7%E8%AF%A6%E8%A7%A3getinstallclean%E7%AD%89/</link><pubDate>Fri, 19 Mar 2021 18:55:05 +0800</pubDate><guid>https://tomial.github.io/posts/go-cli%E5%B7%A5%E5%85%B7%E8%AF%A6%E8%A7%A3getinstallclean%E7%AD%89/</guid><description>&lt;p>本文总结了 Go 1.16 后 Go 命令行工具使用需要注意的地方&lt;/p></description></item><item><title>Hugo使用Github Action自动部署博客到Github Pages</title><link>https://tomial.github.io/posts/hugo%E4%BD%BF%E7%94%A8github-action%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E5%88%B0github-pages/</link><pubDate>Thu, 11 Mar 2021 15:51:47 +0800</pubDate><guid>https://tomial.github.io/posts/hugo%E4%BD%BF%E7%94%A8github-action%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E5%88%B0github-pages/</guid><description>&lt;p>github actions提供了免费的CI/CD功能，能够响应github repo的事件执行一系列自动化的操作。&lt;/p></description></item><item><title>Git Submodule使用总结</title><link>https://tomial.github.io/posts/git-submodule%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</link><pubDate>Wed, 10 Mar 2021 17:41:08 +0800</pubDate><guid>https://tomial.github.io/posts/git-submodule%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</guid><description>&lt;p>我在将博客源码上传到Github时遇到这样一个问题：&lt;/p></description></item><item><title>使用vsftpd建立FTP服务器</title><link>https://tomial.github.io/posts/%E4%BD%BF%E7%94%A8vsftpd%E5%BB%BA%E7%AB%8Bftp%E6%9C%8D%E5%8A%A1%E5%99%A8/</link><pubDate>Tue, 23 Jun 2020 18:10:45 +0000</pubDate><guid>https://tomial.github.io/posts/%E4%BD%BF%E7%94%A8vsftpd%E5%BB%BA%E7%AB%8Bftp%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid><description>VSFTPD是一个FTP服务器软件，官网的介绍是： Probably the most secure and fastest FTP server for UNIX-like systems. 一般在Linux建立FTP服务器都用他，首先要安装vsftpd： de</description></item><item><title>@NotNull和nullable的区别</title><link>https://tomial.github.io/posts/notnull%E5%92%8Cnullable%E7%9A%84%E5%8C%BA%E5%88%AB/</link><pubDate>Sun, 07 Jun 2020 17:02:34 +0000</pubDate><guid>https://tomial.github.io/posts/notnull%E5%92%8Cnullable%E7%9A%84%E5%8C%BA%E5%88%AB/</guid><description>@NotNull @NotNull是Bean Validation规范里面定义的一个注解，不仅可以用在实体(Entity)类中，还可以用在别的bean验证Nu</description></item><item><title>Spring Overview</title><link>https://tomial.github.io/posts/spring-overview/</link><pubDate>Sat, 16 May 2020 10:51:43 +0000</pubDate><guid>https://tomial.github.io/posts/spring-overview/</guid><description>Spring Overview Spring这个词指的是什么？ Spring一词既可以指Spring Framework这个Spring系列的起源框架，也可以指Spring</description></item><item><title>为什么Arrays.asList()返回的列表不能增加元素</title><link>https://tomial.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88arrays.aslist%E8%BF%94%E5%9B%9E%E7%9A%84%E5%88%97%E8%A1%A8%E4%B8%8D%E8%83%BD%E5%A2%9E%E5%8A%A0%E5%85%83%E7%B4%A0/</link><pubDate>Fri, 10 Apr 2020 17:49:32 +0000</pubDate><guid>https://tomial.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88arrays.aslist%E8%BF%94%E5%9B%9E%E7%9A%84%E5%88%97%E8%A1%A8%E4%B8%8D%E8%83%BD%E5%A2%9E%E5%8A%A0%E5%85%83%E7%B4%A0/</guid><description>1 2 3 String[] arr = {&amp;#34;A&amp;#34;, &amp;#34;B&amp;#34;}; List&amp;lt;String&amp;gt; list = Arrays.asList(arr); list.add(&amp;#34;C&amp;#34;); //java.lang.UnsupportedOperationException 如果调用Arrays.asList()方法返回列表的add方法会抛出异常，这是什么原因呢？ 在asList方法源码</description></item><item><title>bcrypt加密及Salts,Peppers的使用</title><link>https://tomial.github.io/posts/bcrypt%E5%8A%A0%E5%AF%86%E5%8F%8Asalts-peppers%E7%9A%84%E4%BD%BF%E7%94%A8/</link><pubDate>Sat, 07 Dec 2019 12:46:26 +0000</pubDate><guid>https://tomial.github.io/posts/bcrypt%E5%8A%A0%E5%AF%86%E5%8F%8Asalts-peppers%E7%9A%84%E4%BD%BF%E7%94%A8/</guid><description>Hash Function 我们知道，一般不会将用户的密码等重要信息的明文存储在数据库中，所以人们常用**散列函数(Hash Functions)**来给密码做加密后</description></item><item><title>HTML初学总结</title><link>https://tomial.github.io/posts/html%E5%88%9D%E5%AD%A6%E6%80%BB%E7%BB%93/</link><pubDate>Mon, 25 Nov 2019 23:20:21 +0000</pubDate><guid>https://tomial.github.io/posts/html%E5%88%9D%E5%AD%A6%E6%80%BB%E7%BB%93/</guid><description>HTML全称是超文本标记语言( HyperText Markup Language )，是创建网页必备的标记语言。 HTML开头经常使用一个标签指定HTML的版本，这个标签告诉浏览器该HTM</description></item><item><title>JavaBean和Serializable,Mbeans</title><link>https://tomial.github.io/posts/javabean%E5%92%8Cserializable-mbeans/</link><pubDate>Mon, 25 Nov 2019 23:15:45 +0000</pubDate><guid>https://tomial.github.io/posts/javabean%E5%92%8Cserializable-mbeans/</guid><description>Java Bean JavaBean简单来说是一种约定俗成的标准。 所有的属性都是private的 有一个public的无参构造函数 实现了Serializabl</description></item><item><title>UDP检验和</title><link>https://tomial.github.io/posts/udp%E6%A3%80%E9%AA%8C%E5%92%8C/</link><pubDate>Tue, 12 Nov 2019 16:10:43 +0000</pubDate><guid>https://tomial.github.io/posts/udp%E6%A3%80%E9%AA%8C%E5%92%8C/</guid><description>UDP检验和 UDP 检验和提供了差错检测的功能，可以让接收方检测所接收到的UDP报文段是否存在错误。但要注意，UDP虽然提供了差错检验的功能，但对</description></item><item><title>跟着官方Guide学习Spring Boot(一):Accessing-data-mysql</title><link>https://tomial.github.io/posts/%E8%B7%9F%E7%9D%80%E5%AE%98%E6%96%B9guide%E5%AD%A6%E4%B9%A0spring-boot-%E4%B8%80-accessing-data-mysql/</link><pubDate>Sun, 20 Oct 2019 20:18:22 +0000</pubDate><guid>https://tomial.github.io/posts/%E8%B7%9F%E7%9D%80%E5%AE%98%E6%96%B9guide%E5%AD%A6%E4%B9%A0spring-boot-%E4%B8%80-accessing-data-mysql/</guid><description>官网地址：Accessing data with MySQL 本期Guide需要： MySQL5.6或以上版本 一个文本编辑器/IDE JDK1.8或以上版本 Gradle 4+或 Maven 3.2+ 使用</description></item><item><title>如何理解REST/RESTful API</title><link>https://tomial.github.io/posts/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3rest-restful-api/</link><pubDate>Mon, 07 Oct 2019 22:37:50 +0000</pubDate><guid>https://tomial.github.io/posts/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3rest-restful-api/</guid><description>什么是REST/RESTful? REST起源于Roy Fielding在2000年发表的博士论文 REST的意思是REpresentationa</description></item><item><title>pacman、aur与yaourt的关系</title><link>https://tomial.github.io/posts/pacmanaur%E4%B8%8Eyaourt%E7%9A%84%E5%85%B3%E7%B3%BB/</link><pubDate>Wed, 25 Sep 2019 11:36:52 +0000</pubDate><guid>https://tomial.github.io/posts/pacmanaur%E4%B8%8Eyaourt%E7%9A%84%E5%85%B3%E7%B3%BB/</guid><description>PACMAN Pacman在Arch wiki的说明如下： pacman软件包管理器是 Arch Linux 的一大亮点。它将一个简单的二进制包格式和易用的构建系统结合了起来(</description></item><item><title>Vim常用命令总结</title><link>https://tomial.github.io/posts/vim%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</link><pubDate>Wed, 14 Aug 2019 12:00:01 +0000</pubDate><guid>https://tomial.github.io/posts/vim%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</guid><description>&amp;lt;C-[&amp;gt;：返回普通模式 &amp;lt;C-a&amp;gt;：使数字加一 &amp;lt;C-x&amp;gt;：使数字减一 {n}&amp;lt;C-a&amp;gt;使数字加</description></item><item><title>更高效的取余运算</title><link>https://tomial.github.io/posts/%E6%9B%B4%E9%AB%98%E6%95%88%E7%9A%84%E5%8F%96%E4%BD%99%E8%BF%90%E7%AE%97/</link><pubDate>Mon, 12 Aug 2019 12:30:57 +0000</pubDate><guid>https://tomial.github.io/posts/%E6%9B%B4%E9%AB%98%E6%95%88%E7%9A%84%E5%8F%96%E4%BD%99%E8%BF%90%E7%AE%97/</guid><description>平常的取余一般用%运算符，在学习ArrayDeque时发现其使用了另一种取余方法： elements[head = (head - 1) &amp;amp; (elements.length - 1)] = e; 其中head是该双向队列的头部下标，</description></item><item><title>为什么Java中数组是协变的而泛型不是?</title><link>https://tomial.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88java%E4%B8%AD%E6%95%B0%E7%BB%84%E6%98%AF%E5%8D%8F%E5%8F%98%E7%9A%84%E8%80%8C%E6%B3%9B%E5%9E%8B%E4%B8%8D%E6%98%AF/</link><pubDate>Sat, 10 Aug 2019 18:15:14 +0000</pubDate><guid>https://tomial.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88java%E4%B8%AD%E6%95%B0%E7%BB%84%E6%98%AF%E5%8D%8F%E5%8F%98%E7%9A%84%E8%80%8C%E6%B3%9B%E5%9E%8B%E4%B8%8D%E6%98%AF/</guid><description>什么是协变? Effective Java中写到： 1.数组和泛型有两个主要的不同点。第一个是数组是协变的(covariant)，而泛型是不变的(invarian</description></item><item><title>ICPC Asia Urumqi 2017 B.The Difference</title><link>https://tomial.github.io/posts/icpc-asia-urumqi-2017-b-the-difference/</link><pubDate>Fri, 09 Aug 2019 17:21:45 +0000</pubDate><guid>https://tomial.github.io/posts/icpc-asia-urumqi-2017-b-the-difference/</guid><description>Alice was always good at math. Her only weak points were multiplication and subtraction. To help her with that, Bob presented her with the following problem. He gave her four positive integers. Alice can change their order optionally. Her task is to find an order, denoted by A1,A2,A3 and A4, with the maximum value of A1×A2 − A3×A4. Input The input</description></item><item><title>ICPC Asia Urumqi 2017 G.The Mountain</title><link>https://tomial.github.io/posts/icpc-asia-urumqi-2017-g-the-mountain/</link><pubDate>Fri, 09 Aug 2019 16:58:08 +0000</pubDate><guid>https://tomial.github.io/posts/icpc-asia-urumqi-2017-g-the-mountain/</guid><description>All as we know, a mountain is a large landform that stretches above the surrounding land in a limited area. If we as the tourists take a picture of a distant mountain and print it out, the image on the surface of paper will be in the shape of a particular polygon. From mathematics angle we can describe the range of the mountain in the picture as a list of</description></item><item><title>Leecode.1.Two Sum (两数之和)</title><link>https://tomial.github.io/posts/leecode-1-two-sum/</link><pubDate>Tue, 06 Aug 2019 18:03:48 +0000</pubDate><guid>https://tomial.github.io/posts/leecode-1-two-sum/</guid><description>题目描述： LeetCode第一题，两数之和 Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice. Example: Given nums = [2, 7, 11, 15], target</description></item><item><title>LeetCode-1128-Number of Equivalent Domino Pairs(等价多米诺骨牌对的数量)</title><link>https://tomial.github.io/posts/leetcode-1128-number-of-equivalent-domino-pairs/</link><pubDate>Thu, 01 Aug 2019 23:35:00 +0000</pubDate><guid>https://tomial.github.io/posts/leetcode-1128-number-of-equivalent-domino-pairs/</guid><description>题目描述： Given a list of dominoes, dominoes[i] = [a, b] is equivalent to dominoes[j] = [c, d] if and only if either (a==c and b==d), or (a==d and b==c) - that is, one domino can be rotated to be equal to another domino. Return the number of pairs (i, j) for which 0 &amp;lt;= i &amp;lt; j &amp;lt; dominoes.length, and dominoes[i] is equivalent to dominoes[j]. Example</description></item><item><title>Java中的二进制</title><link>https://tomial.github.io/posts/java%E4%B8%AD%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/</link><pubDate>Wed, 15 May 2019 23:20:33 +0000</pubDate><guid>https://tomial.github.io/posts/java%E4%B8%AD%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/</guid><description>Java SE 7之后可以使用二进制来定义byte,short,int,long这些整型变量。要使用二进制来表示整形，需要在数字开头带上0b或者0B，如</description></item><item><title>Java8的Lambda表达式与类型检查、推断及限制</title><link>https://tomial.github.io/posts/java8%E7%9A%84lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5%E6%8E%A8%E6%96%AD%E5%8F%8A%E9%99%90%E5%88%B6/</link><pubDate>Tue, 23 Apr 2019 22:12:15 +0000</pubDate><guid>https://tomial.github.io/posts/java8%E7%9A%84lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5%E6%8E%A8%E6%96%AD%E5%8F%8A%E9%99%90%E5%88%B6/</guid><description>为了全面了解Lambda表达式，我们应该知道Lambda的实际类型是什么。 类型检查 Lambda的类型**是从使用Lambda的上下文推断出来</description></item><item><title>Iterable和Iterator</title><link>https://tomial.github.io/posts/iterable%E5%92%8Citerator/</link><pubDate>Tue, 09 Apr 2019 22:27:12 +0000</pubDate><guid>https://tomial.github.io/posts/iterable%E5%92%8Citerator/</guid><description>Iterator和Iterable的内部实现 iterator为Java中的迭代器对象，是能够对List这样的集合进行迭代遍历的底层依赖。而i</description></item><item><title>Java正则表达式匹配模式及实例</title><link>https://tomial.github.io/posts/java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D%E6%A8%A1%E5%BC%8F%E5%8F%8A%E5%AE%9E%E4%BE%8B/</link><pubDate>Tue, 09 Apr 2019 01:08:58 +0000</pubDate><guid>https://tomial.github.io/posts/java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D%E6%A8%A1%E5%BC%8F%E5%8F%8A%E5%AE%9E%E4%BE%8B/</guid><description>正则表达式 匹配 示例 x 单个字符 Java匹配Java . 任意单个字符 Java匹配J..a (ab|cd) ab或cd ten匹配t(en|im) [abc] a或b或c Java</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tomial's Blog</title><link>https://tomial.github.io/</link><description>Recent content on Tomial's Blog</description><generator>Hugo</generator><language>zh-cn</language><copyright>© Tomial</copyright><lastBuildDate>Thu, 29 Feb 2024 17:14:53 +0800</lastBuildDate><atom:link href="https://tomial.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>goroutine控制：WaitGroup解析</title><link>https://tomial.github.io/posts/goroutine/waitgroup/</link><pubDate>Thu, 29 Feb 2024 17:14:53 +0800</pubDate><guid>https://tomial.github.io/posts/goroutine/waitgroup/</guid><description>&lt;p>WaitGroup是Go经常使用的并发控制工具，它非常适合等待一组goroutine结束的场景&lt;/p></description></item><item><title>DNS</title><link>https://tomial.github.io/posts/dns/</link><pubDate>Fri, 02 Feb 2024 13:54:56 +0800</pubDate><guid>https://tomial.github.io/posts/dns/</guid><description>&lt;p>关于域名系统(Domain Name System)的笔记&lt;/p></description></item><item><title>Go Error Handling（1）</title><link>https://tomial.github.io/posts/go-error-handling-1/</link><pubDate>Fri, 12 Jan 2024 14:26:22 +0800</pubDate><guid>https://tomial.github.io/posts/go-error-handling-1/</guid><description>&lt;p>Go没有异常这类机制，与其他语言中的错误处理不太一样，而是用&lt;code>error&lt;/code>这个built-in类型来表示错误。&lt;/p></description></item><item><title>redlock-rb: redis分布式锁的ruby实现分析</title><link>https://tomial.github.io/posts/redlock-rb/</link><pubDate>Tue, 09 Jan 2024 13:30:01 +0800</pubDate><guid>https://tomial.github.io/posts/redlock-rb/</guid><description>&lt;p>redis的文档中提供了一个由redis作者antirez实现的分布式锁：&lt;a href="https://github.com/antirez/redlock-rb">redlock-rb&lt;/a>&lt;/p></description></item><item><title>关于我</title><link>https://tomial.github.io/about/</link><pubDate>Fri, 05 Jan 2024 00:00:00 +0000</pubDate><guid>https://tomial.github.io/about/</guid><description>&lt;p>本博客主题为基于&lt;a href="https://github.com/catppuccin/catppuccin">catppuccin&lt;/a>主题魔改的&lt;a href="https://github.com/tomial/archie">archie&lt;/a>&lt;/p>
+&lt;p>中文字体：&lt;a href="https://github.com/lxgw/LxgwNeoXiHei">霞鹜新晰黑&lt;/a>&lt;/p>
+&lt;p>代码字体：&lt;a href="https://indestructibletype.com/Drafting/">Drafting* Mono&lt;/a>&lt;/p>
+&lt;p>个人项目：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/tomial/go-db">go-db&lt;/a>：一个用于学习的简单B+树数据库&lt;/li>
+&lt;li>goj: gf + React + Docker 实现的OJ系统
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/tomial/goj-judger">judger&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/tomial/goj-server">server&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/tomial/goj-front">front&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>PR: &lt;a href="https://github.com/neovim/neovim/pull/19286">https://github.com/neovim/neovim/pull/19286&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>正在学习：&lt;/p>
+&lt;p>&lt;a href="https://learnopengl.com/">LearnOpenGL&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://github.com/mit-pdos/xv6-riscv">xv6-riscv&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://godotengine.org/">godot&lt;/a>&lt;/p></description></item><item><title>Docker bind Mounts和volume及tmpfs对比</title><link>https://tomial.github.io/posts/docker-bind-mounts%E5%92%8Cvolume%E5%8F%8Atmpfs%E5%AF%B9%E6%AF%94/</link><pubDate>Sat, 10 Apr 2021 17:37:28 +0800</pubDate><guid>https://tomial.github.io/posts/docker-bind-mounts%E5%92%8Cvolume%E5%8F%8Atmpfs%E5%AF%B9%E6%AF%94/</guid><description>&lt;p>本文总结了 bind Mounts 和 volume 及 tmpfs 三种 Docker 管理容器数据方式的区别&lt;/p></description></item><item><title>Docker Security总结</title><link>https://tomial.github.io/posts/docker-security%E6%80%BB%E7%BB%93/</link><pubDate>Tue, 06 Apr 2021 15:35:27 +0800</pubDate><guid>https://tomial.github.io/posts/docker-security%E6%80%BB%E7%BB%93/</guid><description>&lt;p>本文总结了 Docker 安全性相关的内容，主要来自 Docker 官方文档 &lt;a href="https://docs.docker.com/engine/security/">Docker security&lt;/a> 一文。&lt;/p></description></item><item><title>Shell常用工具总结</title><link>https://tomial.github.io/posts/shell%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%80%BB%E7%BB%93/</link><pubDate>Sun, 28 Mar 2021 12:47:04 +0800</pubDate><guid>https://tomial.github.io/posts/shell%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%80%BB%E7%BB%93/</guid><description>&lt;p>这篇文章用来记录一些 Shell 的技巧及好用的工具&lt;/p></description></item><item><title>Go Cli工具详解(get,install,clean等)</title><link>https://tomial.github.io/posts/go-cli%E5%B7%A5%E5%85%B7%E8%AF%A6%E8%A7%A3getinstallclean%E7%AD%89/</link><pubDate>Fri, 19 Mar 2021 18:55:05 +0800</pubDate><guid>https://tomial.github.io/posts/go-cli%E5%B7%A5%E5%85%B7%E8%AF%A6%E8%A7%A3getinstallclean%E7%AD%89/</guid><description>&lt;p>本文总结了 Go 1.16 后 Go 命令行工具使用需要注意的地方&lt;/p></description></item><item><title>Hugo使用Github Action自动部署博客到Github Pages</title><link>https://tomial.github.io/posts/hugo%E4%BD%BF%E7%94%A8github-action%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E5%88%B0github-pages/</link><pubDate>Thu, 11 Mar 2021 15:51:47 +0800</pubDate><guid>https://tomial.github.io/posts/hugo%E4%BD%BF%E7%94%A8github-action%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E5%88%B0github-pages/</guid><description>&lt;p>github actions提供了免费的CI/CD功能，能够响应github repo的事件执行一系列自动化的操作。&lt;/p></description></item><item><title>Git Submodule使用总结</title><link>https://tomial.github.io/posts/git-submodule%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</link><pubDate>Wed, 10 Mar 2021 17:41:08 +0800</pubDate><guid>https://tomial.github.io/posts/git-submodule%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</guid><description>&lt;p>我在将博客源码上传到Github时遇到这样一个问题：&lt;/p></description></item><item><title>使用vsftpd建立FTP服务器</title><link>https://tomial.github.io/posts/%E4%BD%BF%E7%94%A8vsftpd%E5%BB%BA%E7%AB%8Bftp%E6%9C%8D%E5%8A%A1%E5%99%A8/</link><pubDate>Tue, 23 Jun 2020 18:10:45 +0000</pubDate><guid>https://tomial.github.io/posts/%E4%BD%BF%E7%94%A8vsftpd%E5%BB%BA%E7%AB%8Bftp%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid><description>&lt;p>VSFTPD是一个FTP服务器软件，官网的介绍是：&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Probably the most secure and fastest FTP server for UNIX-like systems.&lt;/strong>&lt;/p>
+&lt;/blockquote>
+&lt;p>一般在Linux建立FTP服务器都用他，首先要安装vsftpd：&lt;/p>
+&lt;p>debian系：&lt;/p></description></item><item><title>@NotNull和nullable的区别</title><link>https://tomial.github.io/posts/notnull%E5%92%8Cnullable%E7%9A%84%E5%8C%BA%E5%88%AB/</link><pubDate>Sun, 07 Jun 2020 17:02:34 +0000</pubDate><guid>https://tomial.github.io/posts/notnull%E5%92%8Cnullable%E7%9A%84%E5%8C%BA%E5%88%AB/</guid><description>&lt;h2 id="notnull">@NotNull&lt;/h2>
+&lt;p>@NotNull是Bean Validation规范里面定义的一个注解，不仅可以用在实体(Entity)类中，还可以用在别的bean验证Null值。&lt;/p></description></item><item><title>Spring Overview</title><link>https://tomial.github.io/posts/spring-overview/</link><pubDate>Sat, 16 May 2020 10:51:43 +0000</pubDate><guid>https://tomial.github.io/posts/spring-overview/</guid><description>&lt;h1 id="spring-overview">Spring Overview&lt;/h1>
+&lt;h2 id="spring这个词指的是什么">Spring这个词指的是什么？&lt;/h2>
+&lt;p>Spring一词既可以指&lt;code>Spring Framework&lt;/code>这个Spring系列的起源框架，也可以指Spring这整个体系。&lt;code>Spring Framework&lt;/code> 提供了许多模块供不同的应用选择，比如基于&lt;code>Servlet&lt;/code>的&lt;code>Spring MVC&lt;/code>，又或是与之平行关系的&lt;code>Spring WebFlux&lt;/code>&lt;/p></description></item><item><title>为什么Arrays.asList()返回的列表不能增加元素</title><link>https://tomial.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88arrays.aslist%E8%BF%94%E5%9B%9E%E7%9A%84%E5%88%97%E8%A1%A8%E4%B8%8D%E8%83%BD%E5%A2%9E%E5%8A%A0%E5%85%83%E7%B4%A0/</link><pubDate>Fri, 10 Apr 2020 17:49:32 +0000</pubDate><guid>https://tomial.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88arrays.aslist%E8%BF%94%E5%9B%9E%E7%9A%84%E5%88%97%E8%A1%A8%E4%B8%8D%E8%83%BD%E5%A2%9E%E5%8A%A0%E5%85%83%E7%B4%A0/</guid><description>&lt;div class="highlight">&lt;div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>String&lt;span style="color:#89dceb;font-weight:bold">[]&lt;/span> arr &lt;span style="color:#89dceb;font-weight:bold">=&lt;/span> {&lt;span style="color:#a6e3a1">&amp;#34;A&amp;#34;&lt;/span>, &lt;span style="color:#a6e3a1">&amp;#34;B&amp;#34;&lt;/span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>List&lt;span style="color:#89dceb;font-weight:bold">&amp;lt;&lt;/span>String&lt;span style="color:#89dceb;font-weight:bold">&amp;gt;&lt;/span> list &lt;span style="color:#89dceb;font-weight:bold">=&lt;/span> Arrays.&lt;span style="color:#89b4fa">asList&lt;/span>(arr);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>list.&lt;span style="color:#89b4fa">add&lt;/span>(&lt;span style="color:#a6e3a1">&amp;#34;C&amp;#34;&lt;/span>);	&lt;span style="color:#6c7086;font-style:italic">//java.lang.UnsupportedOperationException&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果调用&lt;code>Arrays.asList()&lt;/code>方法返回列表的add方法会抛出异常，这是什么原因呢？&lt;/p>
+&lt;p>在&lt;code>asList&lt;/code>方法源码可以看到&lt;/p></description></item><item><title>bcrypt加密及Salts,Peppers的使用</title><link>https://tomial.github.io/posts/bcrypt%E5%8A%A0%E5%AF%86%E5%8F%8Asalts-peppers%E7%9A%84%E4%BD%BF%E7%94%A8/</link><pubDate>Sat, 07 Dec 2019 12:46:26 +0000</pubDate><guid>https://tomial.github.io/posts/bcrypt%E5%8A%A0%E5%AF%86%E5%8F%8Asalts-peppers%E7%9A%84%E4%BD%BF%E7%94%A8/</guid><description/></item><item><title>HTML初学总结</title><link>https://tomial.github.io/posts/html%E5%88%9D%E5%AD%A6%E6%80%BB%E7%BB%93/</link><pubDate>Mon, 25 Nov 2019 23:20:21 +0000</pubDate><guid>https://tomial.github.io/posts/html%E5%88%9D%E5%AD%A6%E6%80%BB%E7%BB%93/</guid><description>&lt;p>HTML全称是超文本标记语言( HyperText Markup Language )，是创建网页必备的标记语言。&lt;/p>
+&lt;p>HTML开头经常使用一个标签指定HTML的版本，这个标签告诉浏览器该HTML文件的版本是什么，比如HTML5的标签为：&lt;/p></description></item><item><title>JavaBean和Serializable,Mbeans</title><link>https://tomial.github.io/posts/javabean%E5%92%8Cserializable-mbeans/</link><pubDate>Mon, 25 Nov 2019 23:15:45 +0000</pubDate><guid>https://tomial.github.io/posts/javabean%E5%92%8Cserializable-mbeans/</guid><description>&lt;h2 id="java-bean">Java Bean&lt;/h2>
+&lt;p>JavaBean简单来说是一种约定俗成的标准。&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>所有的属性都是&lt;code>private&lt;/code>的&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>有一个&lt;code>public&lt;/code>的无参构造函数&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>实现了&lt;code>Serializable&lt;/code>接口&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>可以看出，JavaBean就是一种惯例，按照要求实现的类就是一个JavaBean。&lt;/p></description></item><item><title>UDP检验和</title><link>https://tomial.github.io/posts/udp%E6%A3%80%E9%AA%8C%E5%92%8C/</link><pubDate>Tue, 12 Nov 2019 16:10:43 +0000</pubDate><guid>https://tomial.github.io/posts/udp%E6%A3%80%E9%AA%8C%E5%92%8C/</guid><description>&lt;h2 id="udp检验和">UDP检验和&lt;/h2>
+&lt;p>UDP 检验和提供了差错检测的功能，可以让接收方检测所接收到的UDP报文段是否存在错误。但要注意，&lt;strong>UDP虽然提供了差错检验的功能，但对差错恢复无能为力。&lt;/strong>&lt;/p></description></item><item><title>跟着官方Guide学习Spring Boot(一):Accessing-data-mysql</title><link>https://tomial.github.io/posts/%E8%B7%9F%E7%9D%80%E5%AE%98%E6%96%B9guide%E5%AD%A6%E4%B9%A0spring-boot-%E4%B8%80-accessing-data-mysql/</link><pubDate>Sun, 20 Oct 2019 20:18:22 +0000</pubDate><guid>https://tomial.github.io/posts/%E8%B7%9F%E7%9D%80%E5%AE%98%E6%96%B9guide%E5%AD%A6%E4%B9%A0spring-boot-%E4%B8%80-accessing-data-mysql/</guid><description>&lt;p>官网地址：&lt;a href="https://spring.io/guides/gs/accessing-data-mysql/">Accessing data with MySQL&lt;/a>&lt;/p>
+&lt;p>本期Guide需要：&lt;/p>
+&lt;ul>
+&lt;li>MySQL5.6或以上版本&lt;/li>
+&lt;li>一个文本编辑器/IDE&lt;/li>
+&lt;li>JDK1.8或以上版本&lt;/li>
+&lt;li>Gradle 4+或 Maven 3.2+&lt;/li>
+&lt;/ul>
+&lt;h2 id="使用spring-initializr开始">使用Spring Initializr开始&lt;/h2>
+&lt;p>在Spring Initializr中选择以下依赖项：&lt;/p></description></item><item><title>如何理解REST/RESTful API</title><link>https://tomial.github.io/posts/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3rest-restful-api/</link><pubDate>Mon, 07 Oct 2019 22:37:50 +0000</pubDate><guid>https://tomial.github.io/posts/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3rest-restful-api/</guid><description>&lt;h2 id="什么是restrestful">什么是REST/RESTful?&lt;/h2>
+&lt;p>REST起源于Roy Fielding在2000年发表的&lt;a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf">博士论文&lt;/a>&lt;/p>
+&lt;p>REST的意思是&lt;strong>RE&lt;/strong>presentational &lt;strong>S&lt;/strong>tate &lt;strong>T&lt;/strong>ransfer，中文意思为&lt;strong>表现层状态转移&lt;/strong>。&lt;/p></description></item><item><title>pacman、aur与yaourt的关系</title><link>https://tomial.github.io/posts/pacmanaur%E4%B8%8Eyaourt%E7%9A%84%E5%85%B3%E7%B3%BB/</link><pubDate>Wed, 25 Sep 2019 11:36:52 +0000</pubDate><guid>https://tomial.github.io/posts/pacmanaur%E4%B8%8Eyaourt%E7%9A%84%E5%85%B3%E7%B3%BB/</guid><description>&lt;h2 id="pacman">PACMAN&lt;/h2>
+&lt;p>Pacman在Arch wiki的说明如下：&lt;/p>
+&lt;blockquote>
+&lt;p>pacman软件包管理器是 Arch Linux 的一大亮点。它将一个简单的二进制包格式和易用的构建系统结合了起来(参见makepkg和ABS)。不管软件包是来自官方的 Arch 库还是用户自己创建，pacman 都能方便地管理。&lt;/p></description></item><item><title>Vim常用命令总结</title><link>https://tomial.github.io/posts/vim%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</link><pubDate>Wed, 14 Aug 2019 12:00:01 +0000</pubDate><guid>https://tomial.github.io/posts/vim%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</guid><description>&lt;p>&lt;code>&amp;lt;C-[&amp;gt;&lt;/code>：返回普通模式&lt;/p>
+&lt;p>&lt;code>&amp;lt;C-a&amp;gt;&lt;/code>：使数字加一&lt;/p>
+&lt;p>&lt;code>&amp;lt;C-x&amp;gt;&lt;/code>：使数字减一&lt;/p>
+&lt;p>&lt;code>{n}&amp;lt;C-a&amp;gt;&lt;/code>使数字加n&lt;/p>
+&lt;p>&lt;code>{n}&amp;lt;C-x&amp;gt;&lt;/code>：使数字减n&lt;/p></description></item><item><title>更高效的取余运算</title><link>https://tomial.github.io/posts/%E6%9B%B4%E9%AB%98%E6%95%88%E7%9A%84%E5%8F%96%E4%BD%99%E8%BF%90%E7%AE%97/</link><pubDate>Mon, 12 Aug 2019 12:30:57 +0000</pubDate><guid>https://tomial.github.io/posts/%E6%9B%B4%E9%AB%98%E6%95%88%E7%9A%84%E5%8F%96%E4%BD%99%E8%BF%90%E7%AE%97/</guid><description>&lt;p>平常的取余一般用&lt;code>%&lt;/code>运算符，在学习&lt;code>ArrayDeque&lt;/code>时发现其使用了另一种取余方法：&lt;/p>
+&lt;p>&lt;code>elements[head = (head - 1) &amp;amp; (elements.length - 1)] = e;&lt;/code>&lt;/p>
+&lt;p>其中&lt;code>head&lt;/code>是该双向队列的头部下标，这段代码既可以解决下标为负的情况又可以起到取余的作用，其中&lt;code>(head - 1) &amp;amp; (elements.length - 1)&lt;/code>起到了对&lt;code>elements.length&lt;/code> 取余的作用。&lt;/p></description></item><item><title>为什么Java中数组是协变的而泛型不是?</title><link>https://tomial.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88java%E4%B8%AD%E6%95%B0%E7%BB%84%E6%98%AF%E5%8D%8F%E5%8F%98%E7%9A%84%E8%80%8C%E6%B3%9B%E5%9E%8B%E4%B8%8D%E6%98%AF/</link><pubDate>Sat, 10 Aug 2019 18:15:14 +0000</pubDate><guid>https://tomial.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88java%E4%B8%AD%E6%95%B0%E7%BB%84%E6%98%AF%E5%8D%8F%E5%8F%98%E7%9A%84%E8%80%8C%E6%B3%9B%E5%9E%8B%E4%B8%8D%E6%98%AF/</guid><description>&lt;h3 id="什么是协变">什么是协变?&lt;/h3>
+&lt;p>Effective Java中写到：&lt;/p>
+&lt;p>1.数组和泛型有两个主要的不同点。第一个是数组是协变的(covariant)，而泛型是不变的(invariant)。&lt;/p>
+&lt;p>2.协变简单来说就是如果&lt;code>X&lt;/code>是&lt;code>Y&lt;/code>的子类型则&lt;code>X[]&lt;/code>也是 &lt;code>Y[]&lt;/code>的子类型。因为数组是协变的，&lt;code>String&lt;/code>是&lt;code>Object&lt;/code>的子类型，故：&lt;/p></description></item><item><title>ICPC Asia Urumqi 2017 B.The Difference</title><link>https://tomial.github.io/posts/icpc-asia-urumqi-2017-b-the-difference/</link><pubDate>Fri, 09 Aug 2019 17:21:45 +0000</pubDate><guid>https://tomial.github.io/posts/icpc-asia-urumqi-2017-b-the-difference/</guid><description>&lt;p>Alice was always good at math. Her only weak points were multiplication and subtraction. To help her with that, Bob presented her with the following problem.&lt;/p>
+&lt;p>He gave her four positive integers. Alice can change their order optionally. Her task is to find an order, denoted by &lt;code>A1,A2,A3&lt;/code> and &lt;code>A4&lt;/code>, with the maximum value of &lt;code>A1×A2 − A3×A4&lt;/code>.&lt;/p>
+&lt;h3 id="input">Input&lt;/h3>
+&lt;p>The input contains several test cases and the first line provides an integer &lt;code>t(1 ≤ t ≤ 100)&lt;/code>indicating the number of cases.&lt;/p></description></item><item><title>ICPC Asia Urumqi 2017 G.The Mountain</title><link>https://tomial.github.io/posts/icpc-asia-urumqi-2017-g-the-mountain/</link><pubDate>Fri, 09 Aug 2019 16:58:08 +0000</pubDate><guid>https://tomial.github.io/posts/icpc-asia-urumqi-2017-g-the-mountain/</guid><description>&lt;p>All as we know, a mountain is a large landform that stretches above the surrounding land in a limited area. If we as the tourists take a picture of a distant mountain and print it out, the image on the surface of paper will be in the shape of a particular polygon.&lt;/p>
+&lt;p>From mathematics angle we can describe the range of the mountain in the picture as a list of distinct points, denoted by&lt;code> (x1,y1)&lt;/code> to &lt;code>(xn,yn)&lt;/code>. The first point is at the original point of the coordinate system and the last point is lying on the &lt;code>x-axis&lt;/code>. All points else have positive &lt;code>y&lt;/code> coordinates and incremental &lt;code>x &lt;/code>coordinates. Specifically, all &lt;code>x&lt;/code> coordinates satisfy &lt;code>0=x1&amp;lt;x2&amp;lt;x3&amp;lt;...&amp;lt;xn&lt;/code>. All &lt;code>y&lt;/code> coordinates are positive except the first and the last points whose &lt;code>y&lt;/code> coordinates are zeroes.&lt;/p></description></item><item><title>Leecode.1.Two Sum (两数之和)</title><link>https://tomial.github.io/posts/leecode-1-two-sum/</link><pubDate>Tue, 06 Aug 2019 18:03:48 +0000</pubDate><guid>https://tomial.github.io/posts/leecode-1-two-sum/</guid><description>&lt;h2 id="题目描述">题目描述：&lt;/h2>
+&lt;blockquote>
+&lt;p>LeetCode第一题，两数之和&lt;/p>
+&lt;p>Given an array of integers, return &lt;code>indices&lt;/code> of the two numbers such that they add up to a specific target.&lt;/p>
+&lt;p>You may assume that each input would have &lt;code>exactly&lt;/code> one solution, and you may not use the same element twice.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>Given nums = [2, 7, 11, 15], target = 9,&lt;/p>
+&lt;p>Because nums[0] + nums[1] = 2 + 7 = 9,
+return [0, 1].&lt;/p></description></item><item><title>LeetCode-1128-Number of Equivalent Domino Pairs(等价多米诺骨牌对的数量)</title><link>https://tomial.github.io/posts/leetcode-1128-number-of-equivalent-domino-pairs/</link><pubDate>Thu, 01 Aug 2019 23:35:00 +0000</pubDate><guid>https://tomial.github.io/posts/leetcode-1128-number-of-equivalent-domino-pairs/</guid><description>&lt;h2 id="题目描述">题目描述：&lt;/h2>
+&lt;blockquote>
+&lt;p>Given a list of &lt;code>dominoes&lt;/code>, &lt;code>dominoes[i] = [a, b]&lt;/code> is equivalent to &lt;code>dominoes[j] = [c, d]&lt;/code> if and only if either&lt;code> (a==c and b==d)&lt;/code>, or &lt;code>(a==d and b==c)&lt;/code> - that is, one domino can be rotated to be equal to another domino.&lt;/p>
+&lt;p>Return the number of pairs &lt;code>(i, j) &lt;/code>for which &lt;code>0 &amp;lt;= i &amp;lt; j &amp;lt; dominoes.length&lt;/code>, and &lt;code>dominoes[i]&lt;/code> is equivalent to &lt;code>dominoes[j]&lt;/code>.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="example-1">&lt;strong>Example 1:&lt;/strong>&lt;/h2>
+&lt;pre tabindex="0">&lt;code>Input: dominoes = [[1,2],[2,1],[3,4],[5,6]]
+Output: 1
+&lt;/code>&lt;/pre>&lt;p>&lt;strong>Constraints:&lt;/strong>&lt;/p></description></item><item><title>Java中的二进制</title><link>https://tomial.github.io/posts/java%E4%B8%AD%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/</link><pubDate>Wed, 15 May 2019 23:20:33 +0000</pubDate><guid>https://tomial.github.io/posts/java%E4%B8%AD%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6/</guid><description>&lt;p>Java SE 7之后可以使用二进制来定义&lt;code>byte,short,int,long&lt;/code>这些整型变量。要使用二进制来表示整形，需要在数字开头带上&lt;code>0b&lt;/code>或者&lt;code>0B&lt;/code>，如下所示：&lt;/p></description></item><item><title>Java8的Lambda表达式与类型检查、推断及限制</title><link>https://tomial.github.io/posts/java8%E7%9A%84lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5%E6%8E%A8%E6%96%AD%E5%8F%8A%E9%99%90%E5%88%B6/</link><pubDate>Tue, 23 Apr 2019 22:12:15 +0000</pubDate><guid>https://tomial.github.io/posts/java8%E7%9A%84lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5%E6%8E%A8%E6%96%AD%E5%8F%8A%E9%99%90%E5%88%B6/</guid><description>&lt;p>为了全面了解Lambda表达式，我们应该知道Lambda的实际类型是什么。&lt;/p>
+&lt;h2 id="类型检查">类型检查&lt;/h2>
+&lt;pre>&lt;code>Lambda的类型**是从使用Lambda的上下文推断出来的**。上下文(即`接受它传递的方法参数`或`变量`)所需要的类型称为`目标类型`。下面的例子说明了Lambda表达式工作时**类型检查**的过程：
+&lt;/code>&lt;/pre>
+&lt;div class="highlight">&lt;div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>List&lt;span style="color:#89dceb;font-weight:bold">&amp;lt;&lt;/span>Apple&lt;span style="color:#89dceb;font-weight:bold">&amp;gt;&lt;/span> heavierThan150g &lt;span style="color:#89dceb;font-weight:bold">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 	filter(inventory, (Apple a) &lt;span style="color:#89dceb;font-weight:bold">-&amp;gt;&lt;/span> a.&lt;span style="color:#89b4fa">getWeight&lt;/span>() &lt;span style="color:#89dceb;font-weight:bold">&amp;gt;&lt;/span> 150);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol>
+&lt;li>
+&lt;p>使用Lambda的&lt;strong>上下文所需的目标类型&lt;/strong>是什么？&lt;/p></description></item><item><title>Iterable和Iterator</title><link>https://tomial.github.io/posts/iterable%E5%92%8Citerator/</link><pubDate>Tue, 09 Apr 2019 22:27:12 +0000</pubDate><guid>https://tomial.github.io/posts/iterable%E5%92%8Citerator/</guid><description>&lt;h2 id="iterator和iterable的内部实现">Iterator和Iterable的内部实现&lt;/h2>
+&lt;p>&lt;code>iterator&lt;/code>为Java中的迭代器对象，是&lt;strong>能够对List这样的集合进行迭代遍历的底层依赖&lt;/strong>。而&lt;code>iterable&lt;/code>接口里&lt;code>定义了返回iterator的方法，相当于对iterator的封装，实现了iterable接口的类可以支持for each循环。&lt;/code>&lt;/p></description></item><item><title>Java正则表达式匹配模式及实例</title><link>https://tomial.github.io/posts/java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D%E6%A8%A1%E5%BC%8F%E5%8F%8A%E5%AE%9E%E4%BE%8B/</link><pubDate>Tue, 09 Apr 2019 01:08:58 +0000</pubDate><guid>https://tomial.github.io/posts/java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D%E6%A8%A1%E5%BC%8F%E5%8F%8A%E5%AE%9E%E4%BE%8B/</guid><description>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">正则表达式&lt;/th>
+ &lt;th style="text-align: center">匹配&lt;/th>
+ &lt;th style="text-align: center">示例&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>x&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">单个字符&lt;/td>
+ &lt;td style="text-align: center">Java匹配&lt;code>Java&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>.&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">任意单个字符&lt;/td>
+ &lt;td style="text-align: center">Java匹配&lt;code>J..a&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">(ab|cd)&lt;/td>
+ &lt;td style="text-align: center">ab或cd&lt;/td>
+ &lt;td style="text-align: center">ten匹配t(en|im)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>[abc]&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">a或b或c&lt;/td>
+ &lt;td style="text-align: center">Java匹配&lt;code>J[abc]va&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>[^abc]&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">abc外的字符&lt;/td>
+ &lt;td style="text-align: center">Java匹配&lt;code>J[^efg]va&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>[a-z]&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">a-z的任意字符&lt;/td>
+ &lt;td style="text-align: center">Java匹配&lt;code>[A-Z]av[a-z]&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>[^a-z]&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">除a-z的任意字符&lt;/td>
+ &lt;td style="text-align: center">Java匹配&lt;code>Jav[^b-z]&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>[a-e[m-p]]&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">a到e或m到p&lt;/td>
+ &lt;td style="text-align: center">Java匹配 &lt;code>[A-G[I-M]]av[a-d]&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>[a-e&amp;amp;&amp;amp;[c-p]]&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">a到e与c到p的交集&lt;/td>
+ &lt;td style="text-align: center">Java匹配 &lt;code>[A-P&amp;amp;&amp;amp;[I-M]]av[a-d]&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>\d&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">一个数字&lt;/td>
+ &lt;td style="text-align: center">123 匹配&lt;code>\\d&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>\D&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">一个非数字&lt;/td>
+ &lt;td style="text-align: center">$Java匹配&lt;code>[\\D][\\D]ava&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>w&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">单词字符&lt;/td>
+ &lt;td style="text-align: center">Java1匹配 &lt;code>[\\w]ava[\\w]&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>W&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">非单词字符&lt;/td>
+ &lt;td style="text-align: center">$Java匹配&lt;code>[\\W][\\w]ava&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>s&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">空白字符&lt;/td>
+ &lt;td style="text-align: center">Java 2匹配&lt;code>Java\\s2&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>p*&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">p模式出现0次或任意多次(贪婪匹配)&lt;/td>
+ &lt;td style="text-align: center">aaaaab匹配&lt;code>a*b&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>p+&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">p模式出现1次或任意多次&lt;/td>
+ &lt;td style="text-align: center">a匹配&lt;code>a+b*&lt;/code>, able匹配&lt;code>(ab)+.*&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>p?&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">p出现0或1次(非贪婪匹配，尽量少地匹配)&lt;/td>
+ &lt;td style="text-align: center">Java匹配&lt;code>J?Java&lt;/code>和&lt;code>J?ava&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>p{n}&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">p正好出现n次&lt;/td>
+ &lt;td style="text-align: center">aaaa匹配&lt;code>a{4}&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>p{n,}&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">p至少出现n次&lt;/td>
+ &lt;td style="text-align: center">aaaa匹配&lt;code>a{1,}&lt;/code>,a不匹配&lt;code>a{2,}&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;code>p{n,m}&lt;/code>&lt;/td>
+ &lt;td style="text-align: center">p出现次数在n到m次之间&lt;/td>
+ &lt;td style="text-align: center">aaaa匹配&lt;code>a{1,9}&lt;/code>,abb不匹配&lt;code>a{2,9}bb&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>matches(regex:String) : boolean&lt;/code> : 如果字符串匹配模式，返回true&lt;/p></description></item></channel></rss>
